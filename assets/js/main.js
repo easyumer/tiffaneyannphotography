@@ -83,19 +83,7 @@ gsap.timeline()
         ease: 'power3.out'
     }, '-=0.5');
 
-    // Service Cards Animation
-gsap.from('.service-card', {
-    scrollTrigger: {
-        trigger: '.services',
-        start: 'top center',
-        toggleActions: 'play none none reverse'
-    },
-    y: 100,
-    opacity: 0,
-    duration: 1,
-    stagger: 0.2,
-    ease: 'power3.out'
-});
+
 // About Section Animations
 ScrollTrigger.batch(".about__content", {
     onEnter: (elements) => {
@@ -307,4 +295,193 @@ stats.forEach(stat => {
         start: 'top 80%',
         onEnter: () => updateCount()
     });
+});
+
+// Publications Animations
+gsap.from('.publications__header', {
+    scrollTrigger: {
+        trigger: '.publications',
+        start: 'top 80%'
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: 'power3.out'
+});
+
+gsap.from('.featured__item', {
+    scrollTrigger: {
+        trigger: '.featured__grid',
+        start: 'top 80%'
+    },
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: 'power3.out'
+});
+
+// Infinite Marquee Animation
+const marqueeContent = document.querySelector('.marquee__content');
+const marqueeItems = document.querySelectorAll('.marquee__item');
+
+// Clone items for smooth infinite scroll
+marqueeItems.forEach(item => {
+    const clone = item.cloneNode(true);
+    marqueeContent.appendChild(clone);
+});
+// Boudoir Section Animations
+gsap.from('.boudoir__content', {
+    scrollTrigger: {
+        trigger: '.service-boudoir',
+        start: 'top 80%'
+    },
+    x: -100,
+    opacity: 0,
+    duration: 1,
+    ease: 'power3.out'
+});
+
+gsap.from('.gallery__item', {
+    scrollTrigger: {
+        trigger: '.boudoir__gallery',
+        start: 'top 80%'
+    },
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: 'power3.out'
+});
+
+gsap.from('.cta__box', {
+    scrollTrigger: {
+        trigger: '.boudoir__cta',
+        start: 'top 80%'
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: 'power3.out'
+});
+// Wedding Section Animations
+gsap.from('.wedding__content', {
+    scrollTrigger: {
+        trigger: '.service-wedding',
+        start: 'top 80%'
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: 'power3.out'
+});
+
+gsap.from('.showcase__item', {
+    scrollTrigger: {
+        trigger: '.wedding__showcase',
+        start: 'top 80%'
+    },
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: 'power3.out'
+});
+
+gsap.from('.feature', {
+    scrollTrigger: {
+        trigger: '.wedding__features',
+        start: 'top 80%'
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: 'power3.out'
+});
+// Portrait Section Animations
+gsap.from('.portrait__header', {
+    scrollTrigger: {
+        trigger: '.service-portrait',
+        start: 'top 80%'
+    },
+    y: 50,
+    opacity: 0,
+    duration: 1,
+    ease: 'power3.out'
+});
+
+gsap.from('.category', {
+    scrollTrigger: {
+        trigger: '.portrait__categories',
+        start: 'top 80%'
+    },
+    y: 100,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: 'power3.out'
+});
+
+gsap.from('.step', {
+    scrollTrigger: {
+        trigger: '.portrait__process',
+        start: 'top 80%'
+    },
+    x: -50,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.2,
+    ease: 'power3.out'
+});
+// Custom Cursor
+const cursor = document.querySelector('.cursor');
+const cursorDot = document.querySelector('.cursor-dot');
+let isMouseMoving = false;
+let timeout;
+
+document.addEventListener('mousemove', (e) => {
+    isMouseMoving = true;
+    
+    // Move the cursors
+    cursor.style.transform = `translate(${e.clientX - 10}px, ${e.clientY - 10}px)`;
+    cursorDot.style.transform = `translate(${e.clientX - 2}px, ${e.clientY - 2}px)`;
+    
+    // Make cursor visible on movement
+    cursor.style.opacity = '1';
+    cursorDot.style.opacity = '1';
+
+    // Hide cursor after 3 seconds of no movement
+    clearTimeout(timeout);
+    timeout = setTimeout(() => {
+        if (!isMouseMoving) {
+            cursor.style.opacity = '0';
+            cursorDot.style.opacity = '0';
+        }
+        isMouseMoving = false;
+    }, 3000);
+});
+
+// Hover effect for clickable elements
+const clickables = document.querySelectorAll('a, button, .clickable');
+clickables.forEach(element => {
+    element.addEventListener('mouseenter', () => {
+        cursor.classList.add('hover');
+    });
+    
+    element.addEventListener('mouseleave', () => {
+        cursor.classList.remove('hover');
+    });
+});
+
+// Hide cursor when leaving window
+document.addEventListener('mouseleave', () => {
+    cursor.style.opacity = '0';
+    cursorDot.style.opacity = '0';
+});
+
+// Show cursor when entering window
+document.addEventListener('mouseenter', () => {
+    cursor.style.opacity = '1';
+    cursorDot.style.opacity = '1';
 });

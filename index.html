@@ -19,9 +19,13 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+    <div class="cursor"></div>
+<div class="cursor-dot"></div>
     <header class="header">
         <div class="header__container">
-            <a href="/" class="header__logo">TiffaneyAnn</a>
+            <a href="/" class="header__logo">
+                <img src="assets/images/logo.png" alt="TiffaneyAnn Photography">
+            </a>
             <nav class="header__nav">
                 <button class="nav__toggle" aria-label="Toggle menu">
                     <span></span>
@@ -62,36 +66,217 @@
         </div>
     </section>
 
-    <section class="services">
-        <div class="services__grid">
-            <article class="service-card">
-                <img src="assets/images/wedding.jpg" alt="Luxury Wedding Photography" class="service-card__image">
-                <div class="service-card__overlay">
-                    <h2 class="service-card__title">Wedding</h2>
-                    <p class="service-card__description">Capturing the magic of your special day with timeless elegance and authentic moments.</p>
+    <section class="service-boudoir">
+        <div class="boudoir__container">
+            <div class="boudoir__intro">
+                <div class="boudoir__content">
+                    <span class="boudoir__subtitle">Luxury Boudoir Photography</span>
+                    <h2 class="boudoir__title">Celebrate Your Confidence</h2>
+                    <p class="boudoir__description">
+                        Experience an empowering photoshoot that celebrates your unique beauty. Our luxury boudoir sessions are thoughtfully crafted to make you feel comfortable, confident, and absolutely stunning.
+                    </p>
+                    <p class="boudoir__description">
+                        From professional hair and makeup to expert posing guidance, every detail is designed to create timeless images that capture your authentic self.
+                    </p>
                 </div>
-                <a href="#wedding" class="service-card__link" aria-label="Learn more about wedding photography"></a>
-            </article>
+                <div class="boudoir__gallery">
+                    <div class="gallery__item">
+                        <img src="assets/images/boudoir-1.jpg" alt="Elegant Boudoir Portrait" class="gallery__image">
+                        <div class="gallery__overlay">
+                            <h3 class="gallery__title">Classic Elegance</h3>
+                            <p class="gallery__text">Timeless portraits that celebrate your beauty</p>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="assets/images/boudoir-2.jpg" alt="Artistic Boudoir Portrait" class="gallery__image">
+                        <div class="gallery__overlay">
+                            <h3 class="gallery__title">Artistic Vision</h3>
+                            <p class="gallery__text">Creative compositions that tell your story</p>
+                        </div>
+                    </div>
+                    <div class="gallery__item">
+                        <img src="assets/images/boudoir-3.jpg" alt="Contemporary Boudoir Portrait" class="gallery__image">
+                        <div class="gallery__overlay">
+                            <h3 class="gallery__title">Modern Style</h3>
+                            <p class="gallery__text">Contemporary looks with timeless appeal</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
     
-            <article class="service-card">
-                <img src="assets/images/boudoir.jpg" alt="Intimate Boudoir Photography" class="service-card__image">
-                <div class="service-card__overlay">
-                    <h2 class="service-card__title">Boudoir</h2>
-                    <p class="service-card__description">An empowering experience celebrating your unique beauty and self-expression.</p>
+            <div class="boudoir__cta">
+                <div class="cta__box">
+                    <h3 class="cta__title">Ready to Begin Your Journey?</h3>
+                    <p class="cta__text">
+                        Book your luxury boudoir experience today and receive our complete style guide and session preparation package.
+                    </p>
+                    <a href="#contact" class="cta__button">Book Your Session</a>
+                    <div class="starting-price">Sessions starting at $599</div>
                 </div>
-                <a href="#boudoir" class="service-card__link" aria-label="Learn more about boudoir photography"></a>
-            </article>
-    
-            <article class="service-card">
-                <img src="assets/images/portrait.webp" alt="Professional Portrait Photography" class="service-card__image">
-                <div class="service-card__overlay">
-                    <h2 class="service-card__title">Portraits</h2>
-                    <p class="service-card__description">Professional portraits that capture your authentic personality and confidence.</p>
-                </div>
-                <a href="#portraits" class="service-card__link" aria-label="Learn more about portrait photography"></a>
-            </article>
+            </div>
         </div>
     </section>
+    <section class="service-wedding">
+        <div class="wedding__container">
+            <div class="wedding__content">
+                <span class="wedding__subtitle">Wedding Photography</span>
+                <h2 class="wedding__title">Your Love Story, Beautifully Told</h2>
+                <p class="wedding__description">
+                    Every wedding is a unique story waiting to be told. With an eye for detail and a passion for capturing authentic moments, we create timeless photographs that celebrate your love story in its most genuine form.
+                </p>
+            </div>
+    
+            <div class="wedding__showcase">
+                <div class="showcase__item">
+                    <img src="assets/images/wedding-1.jpg" alt="Wedding Ceremony" class="showcase__image">
+                    <div class="showcase__overlay">
+                        <h3 class="showcase__moment">The Ceremony</h3>
+                        <p class="showcase__text">Capturing the magic of your 'I do' moment</p>
+                    </div>
+                </div>
+                <div class="showcase__item">
+                    <img src="assets/images/wedding-2.jpg" alt="Wedding Details" class="showcase__image">
+                    <div class="showcase__overlay">
+                        <h3 class="showcase__moment">The Details</h3>
+                        <p class="showcase__text">Every detail thoughtfully documented</p>
+                    </div>
+                </div>
+                <div class="showcase__item">
+                    <img src="assets/images/wedding-3.jpg" alt="Wedding Portraits" class="showcase__image">
+                    <div class="showcase__overlay">
+                        <h3 class="showcase__moment">The Portraits</h3>
+                        <p class="showcase__text">Romantic moments frozen in time</p>
+                    </div>
+                </div>
+                <div class="showcase__item">
+                    <img src="assets/images/wedding-4.jpg" alt="Wedding Reception" class="showcase__image">
+                    <div class="showcase__overlay">
+                        <h3 class="showcase__moment">The Celebration</h3>
+                        <p class="showcase__text">Joy and love in every frame</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="wedding__features">
+                <div class="feature">
+                    <i class="fas fa-camera feature__icon"></i>
+                    <h3 class="feature__title">Full Day Coverage</h3>
+                    <p class="feature__text">
+                        From getting ready to the last dance, every moment is captured with attention to detail.
+                    </p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-images feature__icon"></i>
+                    <h3 class="feature__title">Second Photographer</h3>
+                    <p class="feature__text">
+                        Multiple perspectives ensure no precious moment goes unmissed.
+                    </p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-book feature__icon"></i>
+                    <h3 class="feature__title">Luxury Album</h3>
+                    <p class="feature__text">
+                        Handcrafted albums that tell your wedding story beautifully.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="wedding__cta">
+                <div class="cta__box">
+                    <h3 class="cta__title">Begin Your Wedding Journey</h3>
+                    <p class="cta__text">
+                        Let's create beautiful memories together. Book a consultation to discuss your wedding vision.
+                    </p>
+                    <a href="#contact" class="cta__button">Schedule Consultation</a>
+                    <div class="starting-price">Collections starting at $2,499</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="service-portrait">
+        <div class="portrait__container">
+            <div class="portrait__header">
+                <span class="portrait__subtitle">Portrait Photography</span>
+                <h2 class="portrait__title">Capture Your Authentic Self</h2>
+                <p class="portrait__description">
+                    Whether it's for professional branding, family memories, or personal artistic expression, our portrait sessions are designed to capture the true essence of who you are.
+                </p>
+            </div>
+    
+            <div class="portrait__categories">
+                <div class="category">
+                    <img src="assets/images/portrait-1.jpg" alt="Professional Headshots" class="category__image">
+                    <div class="category__content">
+                        <h3 class="category__title">Professional</h3>
+                        <p class="category__text">
+                            Elevate your personal brand with sophisticated headshots that make a lasting impression. Perfect for executives, entrepreneurs, and creatives.
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="category">
+                    <img src="assets/images/portrait-2.jpg" alt="Family Portraits" class="category__image">
+                    <div class="category__content">
+                        <h3 class="category__title">Family</h3>
+                        <p class="category__text">
+                            Create timeless family portraits that capture the love, connection, and unique personality of your family.
+                        </p>
+                    </div>
+                </div>
+    
+                <div class="category">
+                    <img src="assets/images/portrait-3.jpg" alt="Creative Portraits" class="category__image">
+                    <div class="category__content">
+                        <h3 class="category__title">Creative</h3>
+                        <p class="category__text">
+                            Express yourself through artistic portraits that push creative boundaries and tell your unique story.
+                        </p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="portrait__process">
+                <div class="process__header">
+                    <h3 class="cta__title">The Portrait Experience</h3>
+                </div>
+                <div class="process__steps">
+                    <div class="step">
+                        <div class="step__number">01</div>
+                        <h4 class="step__title">Consultation</h4>
+                        <p class="step__text">Discuss your vision and plan the perfect session</p>
+                    </div>
+                    <div class="step">
+                        <div class="step__number">02</div>
+                        <h4 class="step__title">Styling</h4>
+                        <p class="step__text">Professional guidance on wardrobe and preparation</p>
+                    </div>
+                    <div class="step">
+                        <div class="step__number">03</div>
+                        <h4 class="step__title">Session</h4>
+                        <p class="step__text">Relaxed photoshoot with expert direction</p>
+                    </div>
+                    <div class="step">
+                        <div class="step__number">04</div>
+                        <h4 class="step__title">Delivery</h4>
+                        <p class="step__text">Professionally edited images in your private gallery</p>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="portrait__cta">
+                <div class="cta__box">
+                    <h3 class="cta__title">Ready to Tell Your Story?</h3>
+                    <p class="cta__text">
+                        Book your portrait session today and receive complimentary style consultation.
+                    </p>
+                    <a href="#contact" class="cta__button">Book Your Session</a>
+                    <div class="starting-price">Sessions starting at $399</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
 
     <section class="about">
         <div class="about__container">
@@ -109,6 +294,73 @@
                     Each session is thoughtfully crafted to bring out your genuine confidence and beauty. Whether it's an intimate boudoir session, a milestone portrait, or your wedding day, my goal is to create stunning imagery that makes you feel as amazing as you truly are.
                 </p>
                 <a href="#contact" class="about__cta">Book Your Session</a>
+            </div>
+        </div>
+    </section>
+    <section class="publications">
+        <div class="publications__container">
+            <div class="publications__header">
+                <span class="publications__subtitle">Featured In</span>
+                <h2 class="publications__title">Industry Recognition</h2>
+                <p class="publications__description">
+                    Honored to have our work featured in leading publications and industry platforms, setting trends in luxury photography.
+                </p>
+            </div>
+    
+            <div class="featured__grid">
+                <article class="featured__item">
+                    <img src="assets/images/vogue-logo.png" alt="Vogue Logo" class="featured__logo">
+                    <p class="featured__quote">
+                        "TiffaneyAnn's unique vision brings a fresh perspective to luxury portrait photography, setting new standards in the industry."
+                    </p>
+                    <div class="featured__date">December 2023</div>
+                </article>
+    
+                <article class="featured__item">
+                    <img src="assets/images/brides-logo.png" alt="Brides Logo" class="featured__logo">
+                    <p class="featured__quote">
+                        "Her ability to capture intimate moments with elegance has made her one of LA's most sought-after photographers."
+                    </p>
+                    <div class="featured__date">October 2023</div>
+                </article>
+    
+                <article class="featured__item">
+                    <img src="assets/images/bazaar-logo.png" alt="Harper's Bazaar Logo" class="featured__logo">
+                    <p class="featured__quote">
+                        "Every frame tells a story of empowerment and artistic excellence in modern photography."
+                    </p>
+                    <div class="featured__date">August 2023</div>
+                </article>
+            </div>
+    
+            <div class="publications__marquee">
+                <div class="marquee__content">
+                    <div class="marquee__item">
+                        <i class="fas fa-award marquee__icon"></i>
+                        Best Fine Art Photography 2023
+                    </div>
+                    <div class="marquee__item">
+                        <i class="fas fa-star marquee__icon"></i>
+                        Featured in Elle Magazine
+                    </div>
+                    <div class="marquee__item">
+                        <i class="fas fa-trophy marquee__icon"></i>
+                        Wedding Photography of the Year
+                    </div>
+                    <div class="marquee__item">
+                        <i class="fas fa-camera marquee__icon"></i>
+                        Top 10 Photographers in LA
+                    </div>
+                    <!-- Duplicate for continuous scroll -->
+                    <div class="marquee__item">
+                        <i class="fas fa-award marquee__icon"></i>
+                        Best Fine Art Photography 2023
+                    </div>
+                    <div class="marquee__item">
+                        <i class="fas fa-star marquee__icon"></i>
+                        Featured in Elle Magazine
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -375,7 +627,9 @@
         <div class="footer__container">
             <div class="footer__grid">
                 <div class="footer__brand">
-                    <a href="/" class="footer__logo">TiffaneyAnn</a>
+                    <a href="/" class="footer__logo">
+                        <img src="assets/images/logo.png" alt="TiffaneyAnn Photography">
+                    </a>
                     <p class="footer__description">
                         Luxury portrait, wedding, and boudoir photography in Los Angeles. Creating timeless imagery and unforgettable experiences.
                     </p>
