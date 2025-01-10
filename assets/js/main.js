@@ -182,33 +182,24 @@ gsap.from('.contact__info', {
     ease: 'power3.out'
 });
 // Pricing Section Animations
-gsap.from('.pricing__header', {
-    scrollTrigger: {
-        trigger: '.pricing',
-        start: 'top top', // Trigger the animation when the section enters the viewport
-        end: 'bottom top', // Animation should end when the section is fully out of view
-        scrub: true, // Smooth scrolling animation effect
-        markers: false, // Remove scroll markers (for debugging, you can enable it if needed)
-    },
-    y: 50,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out'
-});
+document.querySelectorAll('.package').forEach(package => {
+    package.addEventListener('mouseenter', () => {
+        gsap.to(package, {
+            boxShadow: '0 0 15px rgba(198, 169, 108, 0.8)', // Golden glow
+            scale: 1.05, // Slight scale-up effect
+            duration: 0.5,
+            ease: 'power3.out'
+        });
+    });
 
-gsap.from('.package', {
-    scrollTrigger: {
-        trigger: '.pricing__grid',
-        start: 'top top', // Start the animation as soon as the pricing grid section hits the top of the viewport
-        end: 'bottom top',
-        scrub: true, // Make it scroll smoothly
-        stagger: 0.2, // Stagger the animation for each package
-        markers: false,
-    },
-    y: 100,
-    opacity: 0,
-    duration: 1,
-    ease: 'power3.out'
+    package.addEventListener('mouseleave', () => {
+        gsap.to(package, {
+            boxShadow: 'none',
+            scale: 1,
+            duration: 0.5,
+            ease: 'power3.out'
+        });
+    });
 });
 
 
