@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TiffaneyAnn Photography | Luxury Portrait & Wedding Photography</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Commissioner:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__container">
+            <a href="/" class="header__logo">TiffaneyAnn</a>
+            <nav class="header__nav">
+                <button class="nav__toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav__menu">
+                    <li><a href="#home" class="nav__link">Home</a></li>
+                    <li><a href="#portfolio" class="nav__link">Portfolio</a></li>
+                    <li><a href="#about" class="nav__link">About</a></li>
+                    <li><a href="#services" class="nav__link">Services</a></li>
+                    <li><a href="#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="hero__slider">
+            <div class="hero__slide active">
+                <img src="assets/images/hero-1.jpg" alt="Luxury Portrait Photography" class="hero__image">
+            </div>
+            <div class="hero__slide">
+                <img src="assets/images/hero-2.jpg" alt="Wedding Photography" class="hero__image">
+            </div>
+            <div class="hero__slide">
+                <img src="assets/images/hero-3.jpg" alt="Boudoir Photography" class="hero__image">
+            </div>
+        </div>
+        <div class="hero__overlay"></div>
+        <div class="hero__content">
+            <h1 class="hero__title">Creating Timeless Moments of Self-Expression</h1>
+            <p class="hero__subtitle">Los Angeles Boutique Photography Studio specializing in luxury portraits, weddings, and intimate photography</p>
+            <a href="#contact" class="hero__cta">Book Your Session</a>
+        </div>
+        <div class="scroll-indicator">
+            <span class="scroll-indicator__text">Scroll</span>
+            <div class="scroll-indicator__line"></div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="services__grid">
+            <article class="service-card">
+                <img src="assets/images/wedding.jpg" alt="Luxury Wedding Photography" class="service-card__image">
+                <div class="service-card__overlay">
+                    <h2 class="service-card__title">Wedding</h2>
+                    <p class="service-card__description">Capturing the magic of your special day with timeless elegance and authentic moments.</p>
+                </div>
+                <a href="#wedding" class="service-card__link" aria-label="Learn more about wedding photography"></a>
+            </article>
+    
+            <article class="service-card">
+                <img src="assets/images/boudoir.jpg" alt="Intimate Boudoir Photography" class="service-card__image">
+                <div class="service-card__overlay">
+                    <h2 class="service-card__title">Boudoir</h2>
+                    <p class="service-card__description">An empowering experience celebrating your unique beauty and self-expression.</p>
+                </div>
+                <a href="#boudoir" class="service-card__link" aria-label="Learn more about boudoir photography"></a>
+            </article>
+    
+            <article class="service-card">
+                <img src="assets/images/portrait.webp" alt="Professional Portrait Photography" class="service-card__image">
+                <div class="service-card__overlay">
+                    <h2 class="service-card__title">Portraits</h2>
+                    <p class="service-card__description">Professional portraits that capture your authentic personality and confidence.</p>
+                </div>
+                <a href="#portraits" class="service-card__link" aria-label="Learn more about portrait photography"></a>
+            </article>
+        </div>
+    </section>
+
+    <section class="about">
+        <div class="about__container">
+            <div class="about__image-wrapper">
+                <div class="about__image-border"></div>
+                <img src="assets/images/tiffaneyann-portrait.png" alt="TiffaneyAnn Portrait" class="about__image">
+            </div>
+            <div class="about__content">
+                <span class="about__subtitle">Meet Your Photographer</span>
+                <h2 class="about__title">Creating Timeless Art Through The Lens</h2>
+                <p class="about__text">
+                    Being a photographer is more than just capturing images - it's about creating an unforgettable experience that celebrates your unique story. For over a decade, I've been dedicated to empowering individuals through photography, creating safe spaces where authentic self-expression flourishes.
+                </p>
+                <p class="about__text">
+                    Each session is thoughtfully crafted to bring out your genuine confidence and beauty. Whether it's an intimate boudoir session, a milestone portrait, or your wedding day, my goal is to create stunning imagery that makes you feel as amazing as you truly are.
+                </p>
+                <a href="#contact" class="about__cta">Book Your Session</a>
+            </div>
+        </div>
+    </section>
+    <section class="experience">
+        <div class="experience__container">
+            <div class="experience__header">
+                <span class="experience__subtitle">The Journey</span>
+                <h2 class="experience__title">Your Luxury Photography Experience</h2>
+                <p class="experience__description">
+                    From our first consultation to the final reveal, every moment is crafted to ensure an unforgettable experience that celebrates your unique story.
+                </p>
+            </div>
+    
+            <div class="journey">
+                <div class="journey__step">
+                    <div class="journey__number">1</div>
+                    <h3 class="journey__title">Consultation</h3>
+                    <p class="journey__text">
+                        Begin with a personalized consultation where we discuss your vision, style preferences, and create a custom plan for your session.
+                    </p>
+                </div>
+    
+                <div class="journey__step">
+                    <div class="journey__number">2</div>
+                    <h3 class="journey__title">Preparation</h3>
+                    <p class="journey__text">
+                        Receive detailed styling guides, location recommendations, and professional tips to ensure you feel confident and prepared.
+                    </p>
+                </div>
+    
+                <div class="journey__step">
+                    <div class="journey__number">3</div>
+                    <h3 class="journey__title">The Session</h3>
+                    <p class="journey__text">
+                        Experience a relaxed and empowering photoshoot with expert guidance, professional lighting, and attention to every detail.
+                    </p>
+                </div>
+    
+                <div class="journey__step">
+                    <div class="journey__number">4</div>
+                    <h3 class="journey__title">The Reveal</h3>
+                    <p class="journey__text">
+                        View your carefully edited collection in an intimate reveal session, selecting your favorites for your luxury product collection.
+                    </p>
+                </div>
+            </div>
+    
+            <div class="experience__cta">
+                <a href="#contact" class="experience__button">Begin Your Journey</a>
+            </div>
+        </div>
+    </section>
+    <section class="behind-lens">
+        <div class="lens__container">
+            <div class="lens__gallery">
+                <div class="lens__image-wrap">
+                    <img src="assets/images/behind-lens-1.jpeg" alt="TiffaneyAnn at work" class="lens__image">
+                    <div class="lens__border"></div>
+                </div>
+                <div class="lens__image-wrap">
+                    <img src="assets/images/behind-lens-2.jpeg" alt="Photography studio setup" class="lens__image">
+                    <div class="lens__border"></div>
+                </div>
+                <div class="lens__image-wrap">
+                    <img src="assets/images/behind-lens-3.jpeg" alt="Client interaction" class="lens__image">
+                    <div class="lens__border"></div>
+                </div>
+                <div class="lens__image-wrap">
+                    <img src="assets/images/behind-lens-4.jpeg" alt="Photography equipment" class="lens__image">
+                    <div class="lens__border"></div>
+                </div>
+            </div>
+    
+            <div class="lens__content">
+                <span class="lens__subtitle">Behind the Lens</span>
+                <h2 class="lens__title">Crafting Visual Stories with Passion</h2>
+                <p class="lens__text">
+                    With over a decade of experience in luxury photography, I've dedicated my career to creating more than just images – I craft experiences that celebrate the unique essence of each individual who steps in front of my lens.
+                </p>
+                <div class="lens__quote">
+                    <p class="lens__quote-text">
+                        "Photography is not just about creating beautiful images; it's about capturing the soul of a moment and the essence of who you truly are."
+                    </p>
+                </div>
+                <p class="lens__text">
+                    My approach combines technical expertise with an artistic vision, ensuring every session is tailored to reflect your personality and style. From intimate boudoir sessions to grand weddings, each photograph tells a story that's uniquely yours.
+                </p>
+                
+                <div class="lens__stats">
+                    <div class="lens__stat">
+                        <div class="lens__number">10+</div>
+                        <div class="lens__label">Years Experience</div>
+                    </div>
+                    <div class="lens__stat">
+                        <div class="lens__number">500+</div>
+                        <div class="lens__label">Happy Clients</div>
+                    </div>
+                    <div class="lens__stat">
+                        <div class="lens__number">50+</div>
+                        <div class="lens__label">Awards Won</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="testimonials">
+        <div class="testimonials__header">
+            <span class="testimonials__subtitle">Client Experiences</span>
+            <h2 class="testimonials__title">What My Clients Are Saying</h2>
+        </div>
+    
+        <div class="testimonials__slider">
+            <button class="testimonials__arrow testimonials__arrow--prev" aria-label="Previous testimonial">
+                &#8592;
+            </button>
+    
+            <div class="testimonial active">
+                <div class="testimonial__content">
+                    <blockquote class="testimonial__quote">
+                        "Being photographed by Tiffaney was a vulnerable and empowering experience in itself. A photographer is the closest we come to seeing ourselves through someone else's eyes."
+                    </blockquote>
+                    <div class="testimonial__author">Sarah Mitchell</div>
+                    <div class="testimonial__location">Los Angeles, CA</div>
+                </div>
+            </div>
+    
+            <div class="testimonial">
+                <div class="testimonial__content">
+                    <blockquote class="testimonial__quote">
+                        "The entire experience was incredible from start to finish. Tiffaney made me feel comfortable and confident, and the photos exceeded my expectations!"
+                    </blockquote>
+                    <div class="testimonial__author">Emily Johnson</div>
+                    <div class="testimonial__location">Los Angeles, CA</div>
+                </div>
+            </div>
+    
+            <div class="testimonial">
+                <div class="testimonial__content">
+                    <blockquote class="testimonial__quote">
+                        "I've never felt more beautiful and empowered. Tiffaney has an amazing ability to capture the essence of who you are in the most flattering way possible."
+                    </blockquote>
+                    <div class="testimonial__author">Rebecca Torres</div>
+                    <div class="testimonial__location">Los Angeles, CA</div>
+                </div>
+            </div>
+    
+            <button class="testimonials__arrow testimonials__arrow--next" aria-label="Next testimonial">
+                &#8594;
+            </button>
+    
+            <div class="testimonials__nav">
+                <button class="testimonials__dot active" aria-label="Go to testimonial 1"></button>
+                <button class="testimonials__dot" aria-label="Go to testimonial 2"></button>
+                <button class="testimonials__dot" aria-label="Go to testimonial 3"></button>
+            </div>
+        </div>
+    </section>
+    <section class="pricing">
+        <div class="pricing__header">
+            <span class="pricing__subtitle">Investment</span>
+            <h2 class="pricing__title">Experience Worth Investing In</h2>
+            <p class="pricing__description">Choose from our carefully curated packages designed to capture your unique story and create timeless memories.</p>
+        </div>
+    
+        <div class="pricing__grid">
+            <div class="package">
+                <h3 class="package__name">Boudoir Experience</h3>
+                <div class="package__price">
+                    Starting at $599
+                    <div class="package__price-note">2-hour session</div>
+                </div>
+                <ul class="package__features">
+                    <li class="package__feature">Professional Hair & Makeup</li>
+                    <li class="package__feature">Multiple Outfit Changes</li>
+                    <li class="package__feature">Guided Posing & Direction</li>
+                    <li class="package__feature">15 Digital Images</li>
+                    <li class="package__feature">Private Online Gallery</li>
+                </ul>
+                <a href="#contact" class="package__cta">Book Now</a>
+            </div>
+    
+            <div class="package">
+                <h3 class="package__name">Wedding Collection</h3>
+                <div class="package__price">
+                    Starting at $2,499
+                    <div class="package__price-note">8-hour coverage</div>
+                </div>
+                <ul class="package__features">
+                    <li class="package__feature">Engagement Session</li>
+                    <li class="package__feature">Second Photographer</li>
+                    <li class="package__feature">Digital Gallery</li>
+                    <li class="package__feature">Wedding Album</li>
+                    <li class="package__feature">Timeline Planning</li>
+                </ul>
+                <a href="#contact" class="package__cta">Book Now</a>
+            </div>
+    
+            <div class="package">
+                <h3 class="package__name">Portrait Session</h3>
+                <div class="package__price">
+                    Starting at $399
+                    <div class="package__price-note">1-hour session</div>
+                </div>
+                <ul class="package__features">
+                    <li class="package__feature">Style Consultation</li>
+                    <li class="package__feature">Location Selection</li>
+                    <li class="package__feature">10 Digital Images</li>
+                    <li class="package__feature">Print Release</li>
+                    <li class="package__feature">Online Gallery</li>
+                </ul>
+                <a href="#contact" class="package__cta">Book Now</a>
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <div class="contact__container">
+            <div class="contact__info">
+                <span class="contact__subtitle">Get in Touch</span>
+                <h2 class="contact__title">Let's Create Something Beautiful Together</h2>
+                <p class="contact__text">
+                    Ready to begin your photography journey? Whether you're interested in a boudoir session, wedding photography, or professional portraits, I'm here to create an unforgettable experience tailored just for you.
+                </p>
+                <p class="contact__text">
+                    Fill out the form, and I'll get back to you within 24 hours to discuss your vision and how we can bring it to life.
+                </p>
+            </div>
+    
+            <form class="contact__form" action="#" method="POST">
+                <div class="form__group">
+                    <label class="form__label" for="name">Name</label>
+                    <input type="text" id="name" name="name" class="form__input" required>
+                </div>
+    
+                <div class="form__group">
+                    <label class="form__label" for="email">Email</label>
+                    <input type="email" id="email" name="email" class="form__input" required>
+                </div>
+    
+                <div class="form__group">
+                    <label class="form__label" for="phone">Phone</label>
+                    <input type="tel" id="phone" name="phone" class="form__input">
+                </div>
+    
+                <div class="form__group">
+                    <label class="form__label" for="service">Interested In</label>
+                    <select id="service" name="service" class="form__select" required>
+                        <option value="">Select a Service</option>
+                        <option value="boudoir">Boudoir Photography</option>
+                        <option value="wedding">Wedding Photography</option>
+                        <option value="portrait">Portrait Session</option>
+                    </select>
+                </div>
+    
+                <div class="form__group">
+                    <label class="form__label" for="message">Tell Me About Your Vision</label>
+                    <textarea id="message" name="message" class="form__textarea" required></textarea>
+                </div>
+    
+                <button type="submit" class="form__submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="/" class="footer__logo">TiffaneyAnn</a>
+                    <p class="footer__description">
+                        Luxury portrait, wedding, and boudoir photography in Los Angeles. Creating timeless imagery and unforgettable experiences.
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="social__link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social__link" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social__link" aria-label="Pinterest">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="footer__column">
+                    <h3 class="footer__heading">Services</h3>
+                    <ul class="footer__links">
+                        <li class="footer__link"><a href="#services">Boudoir</a></li>
+                        <li class="footer__link"><a href="#services">Weddings</a></li>
+                        <li class="footer__link"><a href="#services">Portraits</a></li>
+                        <li class="footer__link"><a href="#pricing">Investment</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer__column">
+                    <h3 class="footer__heading">Company</h3>
+                    <ul class="footer__links">
+                        <li class="footer__link"><a href="#about">About</a></li>
+                        <li class="footer__link"><a href="#contact">Contact</a></li>
+                        <li class="footer__link"><a href="#testimonials">Testimonials</a></li>
+                        <li class="footer__link"><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer__column">
+                    <h3 class="footer__heading">Location</h3>
+                    <ul class="footer__links">
+                        <li class="footer__link">Los Angeles Studio</li>
+                        <li class="footer__link">Available Worldwide</li>
+                        <li class="footer__link">Email: hello@tiffaneyann.com</li>
+                        <li class="footer__link">Tel: (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="footer__bottom">
+                <p>&copy; 2024 TiffaneyAnn Photography. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
