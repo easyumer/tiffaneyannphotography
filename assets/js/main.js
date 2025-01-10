@@ -422,7 +422,83 @@ gsap.from('.category', {
     stagger: 0.2,
     ease: 'power3.out'
 });
+// Page Loader
+document.addEventListener('DOMContentLoaded', () => {
+    const loader = document.querySelector('.loader');
+    const loaderLogo = document.querySelector('.loader__logo');
+    const loaderBar = document.querySelector('.loader__bar');
+    const mainContent = document.querySelector('main');
+    
+    // Hide main content initially
+    if (mainContent) {
+        mainContent.classList.add('content-hidden');
+    }
 
+    // Animate logo
+    gsap.to(loaderLogo, {
+        opacity: 1,
+        duration: 1,
+        ease: 'power2.out'
+    });
+
+    // Create loading sequence
+    let progress = 0;
+    const fakeProgress = setInterval(() => {
+        progress += Math.random() * 10;
+        if (progress > 100) {
+            progress = 100;
+            clearInterval(fakeProgress);
+            
+            // Animate loader out
+            gsap.timeline()
+                .to(loaderBar, {
+                    width: '100%',
+                    duration: 0.5,
+                    ease: 'power2.inOut'
+                })
+                .to(loaderLogo, {
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: 'power2.in'
+                })
+                .to(loader, {
+                    opacity: 0,
+                    duration: 0.5,
+                    ease: 'power2.in',
+                    onComplete: () => {
+                        loader.style.display = 'none';
+                        if (mainContent) {
+                            mainContent.classList.remove('content-hidden');
+                            mainContent.classList.add('content-visible');
+                        }
+                    }
+                });
+        }
+        loaderBar.style.width = `${progress}%`;
+    }, 100);
+
+    // Preload images
+    const images = document.querySelectorAll('img');
+    let loadedImages = 0;
+
+    function imageLoaded() {
+        loadedImages++;
+        if (loadedImages === images.length) {
+            // All images loaded
+            clearInterval(fakeProgress);
+            progress = 100;
+            loaderBar.style.width = '100%';
+        }
+    }
+
+    images.forEach(img => {
+        if (img.complete) {
+            imageLoaded();
+        } else {
+            img.addEventListener('load', imageLoaded);
+        }
+    });
+});
 gsap.from('.step', {
     scrollTrigger: {
         trigger: '.portrait__process',
@@ -484,4 +560,40 @@ document.addEventListener('mouseleave', () => {
 document.addEventListener('mouseenter', () => {
     cursor.style.opacity = '1';
     cursorDot.style.opacity = '1';
+});
+
+// Back to Top functionality
+const backToTop = document.querySelector('.back-to-top');
+
+// Show/hide button based on scroll position
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 1000) {
+        backToTop.classList.add('visible');
+    } else {
+        backToTop.classList.remove('visible');
+    }
+});
+
+// Smooth scroll to top
+backToTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    
+    // Create smooth scrolling animation
+    gsap.to(window, {
+        duration: 1,
+        scrollTo: {
+            y: 0,
+            autoKill: false
+        },
+        ease: 'power2.inOut'
+    });
+});
+
+// Add to cursor hover elements
+backToTop.addEventListener('mouseenter', () => {
+    cursor.classList.add('hover');
+});
+
+backToTop.addEventListener('mouseleave', () => {
+    cursor.classList.remove('hover');
 });
