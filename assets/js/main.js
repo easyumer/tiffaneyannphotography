@@ -182,25 +182,21 @@ gsap.from('.contact__info', {
     ease: 'power3.out'
 });
 // Pricing Section Animations
-document.querySelectorAll('.package').forEach(package => {
-    package.addEventListener('mouseenter', () => {
-        gsap.to(package, {
-            boxShadow: '0 0 15px rgba(198, 169, 108, 0.8)', // Golden glow
-            scale: 1.05, // Slight scale-up effect
-            duration: 0.5,
-            ease: 'power3.out'
-        });
-    });
-
-    package.addEventListener('mouseleave', () => {
-        gsap.to(package, {
-            boxShadow: 'none',
-            scale: 1,
-            duration: 0.5,
-            ease: 'power3.out'
-        });
-    });
+gsap.from('.package__name', {
+    scrollTrigger: {
+        trigger: '.pricing__grid',
+        start: 'top 60%',
+        end: 'bottom top',
+        scrub: true
+    },
+    opacity: 0,
+    color: '#C6A96C', // Gold color
+    boxShadow: '0 0 15px rgba(198, 169, 108, 0.8)', // Golden glow
+    duration: 1.2,
+    ease: 'power3.out',
+    stagger: 0.3
 });
+
 
 
 gsap.from('.contact__form', {
