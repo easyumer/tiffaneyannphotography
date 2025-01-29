@@ -1,0 +1,121 @@
+TiffaneyAnn Photography Website Development
+=========================================
+
+CODEBASE STRUCTURE
+-----------------
+/assets/
+    /css/
+        style.css (Complete stylesheet with responsive design)
+    /js/
+        main.js (GSAP animations and functionality)
+    /images/
+        (Brand assets and photography)
+/index.html (Homepage structure)
+
+BRAND IDENTITY
+-------------
+Colors:
+- Primary Black: #0A0A0A
+- Primary Gold: #C6A96C
+- Gold Light: #D4BC89
+- Gold Dark: #B69355
+- White: #FFFFFF
+
+Typography:
+- Headings: Cormorant Garamond (serif)
+- Body Text: Commissioner (sans-serif)
+- Base Font Size: 16px
+
+CURRENT WEBSITE SECTIONS
+-----------------------
+1. Hero Section
+   - Full-screen slider
+   - Three featured images
+   - CTA button
+
+2. Service Categories
+   - Boudoir Photography
+   - Wedding Photography
+   - Portrait Photography
+   - Each with dedicated galleries and CTAs
+
+3. The Journey
+   - 4-step process visualization
+   - Interactive elements
+   - Client experience focus
+
+4. About Section
+   - Circular portrait
+   - Brand story
+   - Mission statement
+
+5. Behind the Lens
+   - Photographer showcase
+   - Studio glimpses
+   - Professional background
+
+6. Testimonials
+   - Client reviews slider
+   - Image integration
+   - Social proof
+
+7. Pricing Section
+   - Three-tier structure
+   - Package details
+   - Clear CTAs
+
+8. Contact Form
+   - Integrated booking system
+   - Service selection
+   - Inquiry handling
+
+TECHNICAL SPECIFICATIONS
+-----------------------
+Development Approach:
+- Vanilla HTML5, CSS3, JavaScript
+- GSAP for animations
+- Mobile-first responsive design
+- Cross-browser compatibility
+- Performance optimization
+- SEO best practices
+
+Interactive Features:
+- Custom cursor
+- Smooth scrolling
+- Image galleries
+- Form validation
+- Parallax effects
+- Hover animations
+
+PROJECT DETAILS
+--------------
+Timeline: 4 weeks total
+Budget: $600 (Two payments of $300)
+- Initial Payment: Project kickoff
+- Final Payment: Website completion
+
+OPTIONAL FEATURES
+----------------
+Additional Services Available:
+1. Newsletter System with PDF Resources ($150)
+2. Client Gallery Portal
+3. Online Booking Calendar
+4. Blog Integration
+5. Client Onboarding Automation
+6. Advanced Analytics
+7. Email Marketing Integration
+8. Image Protection Features
+
+DEVELOPMENT PRIORITIES
+---------------------
+1. Mobile responsiveness
+2. Page load optimization
+3. User experience
+4. Content management
+5. Lead generation
+6. Brand consistency
+7. SEO optimization
+
+Target Audience: High-end photography clients seeking luxury portrait, wedding, and boudoir photography services.
+
+END OF DOCUMENTATION

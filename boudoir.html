@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boudoir Photography | TiffaneyAnn Photography</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Commissioner:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/pages/boudoir.css">
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-dot"></div>
+</head>
+<body>
+    <!-- Header (from main site) -->
+    <header class="header">
+        <div class="header__container">
+            <a href="/" class="header__logo">
+                <img src="assets/images/logo.png" alt="TiffaneyAnn Photography">
+            </a>
+            <nav class="header__nav">
+                <button class="nav__toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav__menu">
+                    <li><a href="index.html#home" class="nav__link">Home</a></li>
+                    <li><a href="index.html#portfolio" class="nav__link">Portfolio</a></li>
+                    <li><a href="index.html#about" class="nav__link">About</a></li>
+                    <li><a href="index.html#services" class="nav__link">Services</a></li>
+                    <li><a href="index.html#contact" class="nav__link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="boudoir-page">
+        <!-- Sections will go here -->
+         <!-- Hero Section -->
+<!-- Hero Section -->
+<section class="boudoir-hero">
+    <div class="hero__image-container">
+        <img src="assets/images/boudoir-hero.png" alt="Luxury Boudoir Photography" class="hero__image">
+        <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content">
+        <h1 class="hero__title">
+            <span class="title-line">Celebrate Your</span>
+            <span class="title-line">Authentic Self</span>
+        </h1>
+        <p class="hero__subtitle">An intimate photography experience celebrating individuality and self-expression</p>
+        <a href="#book-now" class="hero__cta">Begin Your Journey</a>
+    </div>
+    <div class="scroll-indicator">
+        <span class="scroll-text">Scroll to Discover</span>
+        <div class="scroll-line"></div>
+    </div>
+</section>
+<!-- Why Boudoir Section -->
+<section class="why-boudoir">
+    <div class="container">
+        <div class="why-boudoir__content">
+            <span class="section-subtitle">The Experience</span>
+            <h2 class="section-title">Why Choose Boudoir</h2>
+            <div class="reason-grid">
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="reason-title">Self Discovery</h3>
+                    <p class="reason-text">A transformative experience that celebrates your unique identity and journey of self-expression.</p>
+                </div>
+
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3 class="reason-title">Artistic Vision</h3>
+                    <p class="reason-text">Collaborate to create stunning imagery that captures your personality and style.</p>
+                </div>
+
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 class="reason-title">Personal Milestone</h3>
+                    <p class="reason-text">Mark a special moment, celebrate an achievement, or simply document your journey.</p>
+                </div>
+
+                <div class="reason-card">
+                    <div class="reason-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <h3 class="reason-title">A Gift</h3>
+                    <p class="reason-text">Create a meaningful gift for someone special or treat yourself to an empowering experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Experience Section -->
+<section class="experience">
+    <div class="container">
+        <div class="experience__header">
+            <span class="section-subtitle">The Process</span>
+            <h2 class="section-title">Your Boudoir Experience</h2>
+        </div>
+        
+        <div class="experience__timeline">
+            <div class="timeline-step">
+                <div class="step-number">01</div>
+                <div class="step-content">
+                    <h3 class="step-title">Initial Consultation</h3>
+                    <p class="step-description">Meet for a relaxed discussion about your vision, styling preferences, and any questions you may have. We'll plan every detail to ensure your comfort.</p>
+                </div>
+            </div>
+
+            <div class="timeline-step">
+                <div class="step-number">02</div>
+                <div class="step-content">
+                    <h3 class="step-title">Session Preparation</h3>
+                    <p class="step-description">Receive a comprehensive guide covering outfit selection, grooming tips, and session preparation. Professional hair and makeup services are provided.</p>
+                </div>
+            </div>
+
+            <div class="timeline-step">
+                <div class="step-number">03</div>
+                <div class="step-content">
+                    <h3 class="step-title">Photo Session</h3>
+                    <p class="step-description">Enjoy a professional photoshoot in our private studio. With expert guidance on posing and expression, you'll feel confident and empowered throughout.</p>
+                </div>
+            </div>
+
+            <div class="timeline-step">
+                <div class="step-number">04</div>
+                <div class="step-content">
+                    <h3 class="step-title">Image Reveal</h3>
+                    <p class="step-description">View your carefully edited collection in a private reveal session. Select your favorite images and discuss album designs or wall art options.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="experience__cta">
+            <a href="#contact" class="btn-gold">Book Your Session</a>
+        </div>
+    </div>
+</section>
+<!-- Portfolio Section -->
+<section class="portfolio">
+    <div class="container">
+        <div class="portfolio__header">
+            <span class="section-subtitle">Gallery</span>
+            <h2 class="section-title">Featured Work</h2>
+        </div>
+
+        <div class="portfolio__grid">
+            <div class="portfolio-item">
+                <img src="assets/images/boudoir-page-1.jpg" alt="Artistic Boudoir Photography" class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-text">
+                        <span class="portfolio-category">Classic</span>
+                        <span class="view-text">View Image</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item tall">
+                <img src="assets/images/boudoir-page-2.jpg" alt="Artistic Boudoir Photography" class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-text">
+                        <span class="portfolio-category">Editorial</span>
+                        <span class="view-text">View Image</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="assets/images/boudoir-page-3.jpg" alt="Artistic Boudoir Photography" class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-text">
+                        <span class="portfolio-category">Artistic</span>
+                        <span class="view-text">View Image</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="portfolio-item">
+                <img src="assets/images/boudoir-page-4.jpg" alt="Artistic Boudoir Photography" class="portfolio-image">
+                <div class="portfolio-overlay">
+                    <div class="portfolio-text">
+                        <span class="portfolio-category">Intimate</span>
+                        <span class="view-text">View Image</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="portfolio__cta">
+            <a href="#gallery" class="btn-outline">View Full Gallery</a>
+        </div>
+    </div>
+</section>
+<!-- Investment Section -->
+<section class="investment">
+    <div class="container">
+        <div class="investment__header">
+            <span class="section-subtitle">Investment</span>
+            <h2 class="section-title">Choose Your Experience</h2>
+            <p class="investment__description">Select the perfect package for your boudoir journey</p>
+        </div>
+
+        <div class="packages">
+            <div class="package">
+                <div class="package__content">
+                    <h3 class="package__name">Signature</h3>
+                    <div class="package__price">$599</div>
+                    <ul class="package__features">
+                        <li>2-Hour Photo Session</li>
+                        <li>Professional Hair & Makeup</li>
+                        <li>2 Outfit Changes</li>
+                        <li>10 Digital Images</li>
+                        <li>Private Online Gallery</li>
+                        <li>Basic Retouching</li>
+                    </ul>
+                    <a href="#book" class="package__cta">Book Now</a>
+                </div>
+            </div>
+
+            <div class="package featured">
+                <div class="package__tag">Most Popular</div>
+                <div class="package__content">
+                    <h3 class="package__name">Luxe</h3>
+                    <div class="package__price">$899</div>
+                    <ul class="package__features">
+                        <li>3-Hour Photo Session</li>
+                        <li>Professional Hair & Makeup</li>
+                        <li>4 Outfit Changes</li>
+                        <li>20 Digital Images</li>
+                        <li>Private Online Gallery</li>
+                        <li>Advanced Retouching</li>
+                        <li>8x8 Luxury Album</li>
+                    </ul>
+                    <a href="#book" class="package__cta">Book Now</a>
+                </div>
+            </div>
+
+            <div class="package">
+                <div class="package__content">
+                    <h3 class="package__name">Couture</h3>
+                    <div class="package__price">$1,299</div>
+                    <ul class="package__features">
+                        <li>4-Hour Photo Session</li>
+                        <li>Professional Hair & Makeup</li>
+                        <li>Unlimited Outfit Changes</li>
+                        <li>All Digital Images</li>
+                        <li>Private Online Gallery</li>
+                        <li>Premium Retouching</li>
+                        <li>10x10 Luxury Album</li>
+                        <li>Wall Art Credit</li>
+                    </ul>
+                    <a href="#book" class="package__cta">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- FAQ Section -->
+<section class="faq">
+    <div class="container">
+        <div class="faq__header">
+            <span class="section-subtitle">Common Questions</span>
+            <h2 class="section-title">What to Expect</h2>
+        </div>
+
+        <div class="faq__grid">
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>What should I wear to my session?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>We'll provide a detailed style guide upon booking, but consider bringing 2-3 outfits that make you feel confident. This can include lingerie, oversized shirts, structured pieces, or meaningful personal items.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>Do I need modeling experience?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely not! We provide complete posing guidance throughout your session. Our approach focuses on natural expressions and poses that complement your unique features.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>How long does a session last?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Sessions typically last 2-4 hours, including hair and makeup. This allows plenty of time for outfit changes and ensuring you feel comfortable with each pose and setup.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question">
+                    <h3>When will I see my photos?</h3>
+                    <span class="toggle-icon">+</span>
+                </div>
+                <div class="faq-answer">
+                    <p>Your image reveal session will be scheduled approximately two weeks after your photoshoot. During this private session, you'll view your carefully edited collection and select your favorite images.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact Section -->
+<section class="contact">
+    <div class="container">
+        <div class="contact__grid">
+            <div class="contact__info">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2 class="section-title">Book Your Session</h2>
+                <p class="contact__text">
+                    Ready to begin your boudoir journey? Let's create something beautiful together. Fill out the form and we'll get back to you within 24 hours to discuss your vision.
+                </p>
+                
+                <div class="contact__details">
+                    <div class="detail-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>hello@tiffaneyann.com</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+1 (555) 123-4567</span>
+                    </div>
+                    <div class="detail-item">
+                        <i class="fas fa-location-dot"></i>
+                        <span>Los Angeles, California</span>
+                    </div>
+                </div>
+            </div>
+
+            <form class="contact__form">
+                <div class="form__group">
+                    <label for="name" class="form__label">Name</label>
+                    <input type="text" id="name" class="form__input" required>
+                </div>
+
+                <div class="form__group">
+                    <label for="email" class="form__label">Email</label>
+                    <input type="email" id="email" class="form__input" required>
+                </div>
+
+                <div class="form__group">
+                    <label for="phone" class="form__label">Phone</label>
+                    <input type="tel" id="phone" class="form__input">
+                </div>
+
+                <div class="form__group">
+                    <label for="package" class="form__label">Interested Package</label>
+                    <select id="package" class="form__select" required>
+                        <option value="">Select a Package</option>
+                        <option value="signature">Signature ($599)</option>
+                        <option value="luxe">Luxe ($899)</option>
+                        <option value="couture">Couture ($1,299)</option>
+                    </select>
+                </div>
+
+                <div class="form__group">
+                    <label for="message" class="form__label">Your Message</label>
+                    <textarea id="message" class="form__textarea" rows="5" required></textarea>
+                </div>
+
+                <button type="submit" class="form__submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+</section>
+    </main>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" aria-label="Back to top"></button>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="/" class="footer__logo">
+                        <img src="assets/images/logo.png" alt="TiffaneyAnn Photography">
+                    </a>
+                    <p class="footer__description">
+                        Luxury portrait, wedding, and boudoir photography in Los Angeles. Creating timeless imagery and unforgettable experiences.
+                    </p>
+                    <div class="footer__social">
+                        <a href="#" class="social__link" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social__link" aria-label="Facebook">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social__link" aria-label="Pinterest">
+                            <i class="fab fa-pinterest"></i>
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="footer__column">
+                    <h3 class="footer__heading">Services</h3>
+                    <ul class="footer__links">
+                        <li class="footer__link"><a href="boudoir.html">Boudoir Photography</a></li>
+                        <li class="footer__link"><a href="#services">Weddings</a></li>
+                        <li class="footer__link"><a href="#services">Portraits</a></li>
+                        <li class="footer__link"><a href="#pricing">Investment</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer__column">
+                    <h3 class="footer__heading">Company</h3>
+                    <ul class="footer__links">
+                        <li class="footer__link"><a href="#about">About</a></li>
+                        <li class="footer__link"><a href="#contact">Contact</a></li>
+                        <li class="footer__link"><a href="#testimonials">Testimonials</a></li>
+                        <li class="footer__link"><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+    
+                <div class="footer__column">
+                    <h3 class="footer__heading">Location</h3>
+                    <ul class="footer__links">
+                        <li class="footer__link">Los Angeles Studio</li>
+                        <li class="footer__link">Available Worldwide</li>
+                        <li class="footer__link">Email: hello@tiffaneyann.com</li>
+                        <li class="footer__link">Tel: (555) 123-4567</li>
+                    </ul>
+                </div>
+            </div>
+    
+            <div class="footer__bottom">
+                <p>&copy; 2024 TiffaneyAnn Photography. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Custom JS -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/pages/boudoir.js"></script>
+</body>
+</html>
