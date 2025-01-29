@@ -215,65 +215,32 @@
     </div>
 </section>
 <!-- Investment Section -->
+<!-- Investment Section -->
 <section class="investment">
     <div class="container">
         <div class="investment__header">
             <span class="section-subtitle">Investment</span>
-            <h2 class="section-title">Choose Your Experience</h2>
-            <p class="investment__description">Select the perfect package for your boudoir journey</p>
+            <h2 class="section-title">Session Details</h2>
         </div>
 
-        <div class="packages">
-            <div class="package">
-                <div class="package__content">
-                    <h3 class="package__name">Signature</h3>
-                    <div class="package__price">$599</div>
-                    <ul class="package__features">
-                        <li>2-Hour Photo Session</li>
-                        <li>Professional Hair & Makeup</li>
-                        <li>2 Outfit Changes</li>
-                        <li>10 Digital Images</li>
-                        <li>Private Online Gallery</li>
-                        <li>Basic Retouching</li>
-                    </ul>
-                    <a href="#book" class="package__cta">Book Now</a>
+        <div class="single-package">
+            <div class="package__content">
+                <h3 class="package__name">Boudoir Experience</h3>
+                <div class="package__price">$499</div>
+                <div class="package__description">
+                    All portrait sessions are artfully guided
                 </div>
-            </div>
-
-            <div class="package featured">
-                <div class="package__tag">Most Popular</div>
-                <div class="package__content">
-                    <h3 class="package__name">Luxe</h3>
-                    <div class="package__price">$899</div>
-                    <ul class="package__features">
-                        <li>3-Hour Photo Session</li>
-                        <li>Professional Hair & Makeup</li>
-                        <li>4 Outfit Changes</li>
-                        <li>20 Digital Images</li>
-                        <li>Private Online Gallery</li>
-                        <li>Advanced Retouching</li>
-                        <li>8x8 Luxury Album</li>
-                    </ul>
-                    <a href="#book" class="package__cta">Book Now</a>
+                <ul class="package__features">
+                    <li>Professional Hair and Makeup</li>
+                    <li>Licensed Stylist Services</li>
+                    <li>Skillfully Directed Photography</li>
+                    <li>Style and Concept Consultation</li>
+                    <li>Personalized Experience</li>
+                </ul>
+                <div class="package__note">
+                    Please contact us to setup your free consultation.
                 </div>
-            </div>
-
-            <div class="package">
-                <div class="package__content">
-                    <h3 class="package__name">Couture</h3>
-                    <div class="package__price">$1,299</div>
-                    <ul class="package__features">
-                        <li>4-Hour Photo Session</li>
-                        <li>Professional Hair & Makeup</li>
-                        <li>Unlimited Outfit Changes</li>
-                        <li>All Digital Images</li>
-                        <li>Private Online Gallery</li>
-                        <li>Premium Retouching</li>
-                        <li>10x10 Luxury Album</li>
-                        <li>Wall Art Credit</li>
-                    </ul>
-                    <a href="#book" class="package__cta">Book Now</a>
-                </div>
+                <a href="#contact" class="package__cta">Book Consultation</a>
             </div>
         </div>
     </div>
@@ -373,13 +340,8 @@
                 </div>
 
                 <div class="form__group">
-                    <label for="package" class="form__label">Interested Package</label>
-                    <select id="package" class="form__select" required>
-                        <option value="">Select a Package</option>
-                        <option value="signature">Signature ($599)</option>
-                        <option value="luxe">Luxe ($899)</option>
-                        <option value="couture">Couture ($1,299)</option>
-                    </select>
+                    <label for="session" class="form__label">Boudoir Session</label>
+                    <input type="text" id="session" class="form__input" value="Boudoir Experience ($499)" readonly>
                 </div>
 
                 <div class="form__group">
