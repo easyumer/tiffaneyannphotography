@@ -471,72 +471,134 @@
 }
 /* Investment Section */
 /* Investment Section */
+/* Investment Section Styling */
 .investment {
     padding: var(--spacing-xl) 0;
-    background-color: var(--color-black-light);
+    background-color: var(--color-black);
 }
 
-.investment__header {
-    text-align: center;
-    margin-bottom: var(--spacing-lg);
-}
-
-.single-package {
-    max-width: 600px;
+.investment-wrapper {
+    max-width: 900px;
     margin: 0 auto;
     padding: 0 var(--spacing-md);
 }
 
-.package__content {
-    background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(10, 10, 10, 0.9));
-    border: 1px solid var(--color-gold);
-    padding: 3rem 2rem;
+.investment__header {
     text-align: center;
-    transition: transform 0.3s ease;
+    margin-bottom: 4rem;
 }
 
-.package__name {
-    font-family: var(--font-heading);
+.section-subtitle {
     color: var(--color-gold);
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    display: block;
 }
 
-.package__price {
+.section-title {
+    color: var(--color-gold);
     font-family: var(--font-heading);
-    color: var(--color-white);
-    font-size: 3.5rem;
+    font-size: clamp(2rem, 4vw, 2.5rem);
     margin-bottom: 1rem;
 }
 
-.package__description {
+.section-description {
     color: var(--color-white);
     font-size: 1.1rem;
-    margin-bottom: 2rem;
-}
-
-.package__features {
-    list-style: none;
-    margin: 2rem 0;
-    padding: 0;
-    text-align: center;
-}
-
-.package__features li {
-    color: var(--color-white);
-    padding: 0.8rem 0;
-    font-size: 1rem;
+    max-width: 600px;
+    margin: 0 auto;
     line-height: 1.6;
 }
 
-.package__note {
-    color: var(--color-white);
-    font-style: italic;
-    margin: 2rem 0;
-    opacity: 0.9;
+/* Previous styles for investment section remain the same until investment-card */
+
+.investment-card {
+    background: linear-gradient(145deg, rgba(26, 26, 26, 0.9), rgba(10, 10, 10, 0.9));
+    border: 1px solid var(--color-gold);
+    padding: 3rem;
+    text-align: center;
 }
 
-.package__cta {
+.investment-price {
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+}
+.investment-price::after {
+    content: '';
+    width: 50px;
+    height: 1px;
+    background-color: var(--color-gold);
+    position: absolute;
+    bottom: -1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0.5;
+}
+
+.price-currency {
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: 3.5rem; /* Increased from 2.5rem */
+    position: absolute;
+    left: 0;
+    top: 0.5rem; /* Adjust this to vertically align with the number */
+    line-height: 1;
+}
+
+.price {
+    position: relative;
+    padding-left: 2.5rem; /* Space for the currency */
+}
+
+.price-value {
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-size: 5rem; /* Increased from 4.5rem */
+    line-height: 1;
+    font-weight: 300; /* Making it slightly lighter */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.feature-box {
+    background: rgba(198, 169, 108, 0.1);
+    border: 1px solid var(--color-gold);
+    padding: 1.5rem;
+    color: var(--color-white);
+    transition: all 0.3s ease;
+}
+
+.feature-box:hover {
+    background: rgba(198, 169, 108, 0.2);
+    transform: translateY(-3px);
+}
+
+.feature-box i {
+    color: var(--color-gold);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.feature-box span {
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.investment-cta {
+    margin-top: 2rem;
+}
+
+.btn-gold {
     display: inline-block;
     padding: 1rem 2.5rem;
     border: 1px solid var(--color-gold);
@@ -546,17 +608,29 @@
     letter-spacing: 2px;
     font-size: 0.9rem;
     transition: all 0.3s ease;
-    margin-top: 1rem;
 }
 
-.package__cta:hover {
+.btn-gold:hover {
     background-color: var(--color-gold);
     color: var(--color-black);
 }
 
 @media (max-width: 768px) {
-    .package__content {
-        padding: 2rem 1.5rem;
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .investment-card {
+        padding: 2rem;
+    }
+
+    .price-value {
+        font-size: 3.5rem;
+    }
+
+    .price-currency {
+        font-size: 2rem;
     }
 }
 /* FAQ Section */
@@ -694,6 +768,132 @@
     margin-bottom: 1.5rem;
 }
 
+/* Device-Specific Optimizations */
+
+/* MacBook Pro and High-Resolution Displays */
+@media screen and (min-width: 1440px) {
+    .container {
+        max-width: 1200px;
+        padding: 0 2rem;
+    }
+
+    .hero__title {
+        font-size: clamp(3.5rem, 5vw, 5rem);
+    }
+}
+
+/* MacBook Air and Standard Laptops */
+@media screen and (max-width: 1366px) {
+    .container {
+        max-width: 1100px;
+    }
+}
+
+/* iPad Pro and Tablets */
+@media screen and (max-width: 1024px) and (min-width: 769px) {
+    .hero {
+        height: 80vh;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* iPhone and Mobile Devices */
+@media screen and (max-width: 768px) {
+    /* Base Typography */
+    html {
+        font-size: 14px;
+    }
+
+    /* Header Adjustments */
+    .header {
+        padding: 1rem;
+    }
+
+    /* Sections Spacing */
+    .section-padding {
+        padding: 4rem 0;
+    }
+
+    /* Form Elements */
+    input, select, textarea {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+}
+
+/* iPhone-Specific Adjustments */
+@media screen and (max-width: 430px) {
+    .hero__title {
+        font-size: 2.5rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+
+    .package__content {
+        padding: 1.5rem;
+    }
+}
+
+/* Notched iPhones */
+@supports (padding: max(0px)) {
+    .header {
+        padding-left: max(2rem, env(safe-area-inset-left));
+        padding-right: max(2rem, env(safe-area-inset-right));
+    }
+
+    .footer {
+        padding-bottom: max(2rem, env(safe-area-inset-bottom));
+    }
+}
+
+/* Landscape Mode */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .hero__content {
+        padding: 6rem 0;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .nav__link::after {
+        display: none;
+    }
+
+    .package__cta:hover {
+        transform: none;
+    }
+}
+
+/* High-Resolution Retina Displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    .hero__image {
+        transform: translateZ(0);
+    }
+}
+
+/* Print Styles */
+@media print {
+    .hero {
+        height: auto;
+    }
+
+    .nav__menu,
+    .hero__cta,
+    .back-to-top {
+        display: none;
+    }
+}
+
 .form__label {
     display: block;
     color: var(--color-gold);
@@ -770,5 +970,108 @@
 
     .contact__form {
         padding: 2rem;
+    }
+}
+/* Add these to your existing responsive styles in boudoir.css */
+
+/* Specific optimization for 1280x720 and similar resolutions */
+@media screen and (max-width: 1280px) {
+    /* Container width adjustment */
+    .container {
+        max-width: 1100px;
+        padding: 0 1.5rem;
+    }
+
+    /* Hero section adjustments */
+    .hero__title {
+        font-size: 3rem;
+    }
+
+    .hero__subtitle {
+        font-size: 1.1rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Grid layouts adjustments */
+    .portfolio__grid {
+        gap: 1rem;
+    }
+
+    /* Experience section */
+    .experience__timeline {
+        max-width: 800px;
+    }
+
+    .timeline-step {
+        gap: 1.5rem;
+    }
+
+    /* Investment section */
+    .single-package {
+        max-width: 500px;
+    }
+
+    .package__content {
+        padding: 2rem;
+    }
+
+    /* FAQ section */
+    .faq__grid {
+        max-width: 800px;
+    }
+
+    /* Contact section */
+    .contact__grid {
+        gap: 2rem;
+    }
+
+    .contact__form {
+        padding: 2rem;
+    }
+}
+
+/* Additional refinement for heights around 720px */
+@media screen and (max-height: 720px) {
+    .hero {
+        min-height: 100vh;
+        height: auto;
+    }
+
+    .hero__content {
+        padding: 6rem 0 4rem;
+    }
+
+    .section-padding {
+        padding: 3rem 0;
+    }
+
+    .experience__timeline {
+        padding: 1rem 0;
+    }
+
+    .timeline-step {
+        margin-bottom: 2rem;
+    }
+}
+
+/* Optimize for both width and height constraints */
+@media screen and (max-width: 1280px) and (max-height: 720px) {
+    .hero__content {
+        transform: translateY(-45%);
+    }
+
+    .scroll-indicator {
+        bottom: 1rem;
+    }
+
+    .section-title {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .package__price {
+        font-size: 3rem;
     }
 }

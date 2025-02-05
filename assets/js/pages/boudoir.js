@@ -127,6 +127,53 @@ document.querySelectorAll('.faq-question').forEach(question => {
     });
 });
 
+// Performance optimizations
+document.addEventListener('DOMContentLoaded', () => {
+    // Detect device type
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    // Optimize animations for mobile
+    if (isMobile) {
+        gsap.config({
+            force3D: true
+        });
+    }
+
+    // Handle smooth scrolling
+    const smoothScroll = (target) => {
+        const element = document.querySelector(target);
+        if (element) {
+            const offset = isMobile ? 60 : 80; // Adjusted for header height
+            const y = element.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+    };
+
+    // Optimize image loading
+    const images = document.querySelectorAll('img[loading="lazy"]');
+    if ('loading' in HTMLImageElement.prototype) {
+        images.forEach(img => {
+            img.src = img.dataset.src;
+        });
+    } else {
+        // Fallback for older browsers
+        const script = document.createElement('script');
+        script.src = 'https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js';
+        document.body.appendChild(script);
+    }
+});
+
+// Throttle scroll events
+let ticking = false;
+window.addEventListener('scroll', () => {
+    if (!ticking) {
+        window.requestAnimationFrame(() => {
+            // Your scroll handlers
+            ticking = false;
+        });
+        ticking = true;
+    }
+});
 // FAQ Animation
 gsap.from('.faq-item', {
     scrollTrigger: {

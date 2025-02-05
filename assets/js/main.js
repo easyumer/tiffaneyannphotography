@@ -550,6 +550,8 @@ clickables.forEach(element => {
     });
 });
 
+
+
 // Hide cursor when leaving window
 document.addEventListener('mouseleave', () => {
     cursor.style.opacity = '0';
@@ -596,4 +598,32 @@ backToTop.addEventListener('mouseenter', () => {
 
 backToTop.addEventListener('mouseleave', () => {
     cursor.classList.remove('hover');
+});
+
+// Headshot Section Animations
+const headshots = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.headshot__gallery',
+        start: 'top 80%'
+    }
+});
+
+headshots.from('.gallery__image', {
+    opacity: 0,
+    duration: 1.2,
+    stagger: 0.2,
+    ease: 'power2.out'
+});
+
+// Replace previous feature animations with:
+gsap.from('.feature__item', {
+    scrollTrigger: {
+        trigger: '.headshot__features',
+        start: 'top 80%'
+    },
+    opacity: 0,
+    x: -20,
+    duration: 0.8,
+    stagger: 0.15,
+    ease: 'power2.out'
 });
