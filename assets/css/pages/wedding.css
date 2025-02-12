@@ -1,0 +1,420 @@
+/* Base Styles for Wedding Page */
+.wedding-page {
+    background-color: var(--color-black);
+    overflow-x: hidden;
+}
+
+/* Hero Section */
+.wedding-hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    margin-top: calc(-1 * var(--header-height));
+}
+
+.hero__image-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.85) contrast(1.1);
+    transform: scale(1.1);
+    transition: transform 1.5s ease;
+}
+
+.wedding-hero.loaded .hero__image {
+    transform: scale(1);
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.4) 0%,
+        rgba(0, 0, 0, 0.3) 50%,
+        rgba(0, 0, 0, 0.5) 100%
+    );
+}
+
+.hero__content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 90%;
+    max-width: 800px;
+    z-index: 2;
+    padding: 2rem;
+}
+
+.hero__title {
+    margin-bottom: 2rem;
+}
+
+.hero__title .title-line {
+    display: block;
+    font-family: var(--font-heading);
+    color: var(--color-gold);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.3;
+    font-weight: 300;
+    letter-spacing: 3px;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.hero__subtitle {
+    font-family: var(--font-body);
+    color: rgba(255, 255, 255, 0.95);
+    font-size: clamp(1rem, 1.8vw, 1.3rem);
+    line-height: 1.6;
+    margin: 1.5rem auto 2.5rem;
+    max-width: 650px;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.hero__cta {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: transparent;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.hero__cta:hover {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+}
+
+.scroll-text {
+    color: var(--color-gold);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.scroll-line {
+    width: 1px;
+    height: 50px;
+    background-color: var(--color-gold);
+    position: relative;
+    overflow: hidden;
+}
+
+.scroll-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-white);
+    animation: scrollLine 2s ease-in-out infinite;
+}
+
+@keyframes scrollLine {
+    0% { transform: translateY(-100%); }
+    50% { transform: translateY(100%); }
+    100% { transform: translateY(100%); }
+}
+
+/* Wedding Experience Section */
+.wedding-experience {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-black);
+    position: relative;
+}
+
+.experience__header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.section-subtitle {
+    font-family: var(--font-body);
+    color: var(--color-gold);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.section-title {
+    font-family: var(--font-heading);
+    color: var(--color-gold);
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.section-description {
+    color: var(--color-white);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.experience__features {
+    max-width: 900px;
+    margin: 0 auto;
+    border: 1px solid rgba(198, 169, 108, 0.3);
+}
+
+.feature {
+    display: flex;
+    align-items: center;
+    padding: 3rem;
+    text-align: left;
+    border-bottom: 1px solid rgba(198, 169, 108, 0.1);
+}
+
+.feature:last-child {
+    border-bottom: none;
+}
+
+.feature__icon {
+    color: var(--color-gold);
+    font-size: 2rem;
+    margin-right: 2rem;
+    flex-shrink: 0;
+}
+
+.feature__content {
+    flex: 1;
+}
+
+.feature__title {
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature__text {
+    color: var(--color-white);
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+.experience__cta {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.btn-gold {
+    display: inline-block;
+    padding: 1.2rem 3rem;
+    background-color: transparent;
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    background-color: var(--color-gold);
+    color: var(--color-black);
+}
+
+.experience__price {
+    margin-top: 1.5rem;
+    color: var(--color-white);
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+    .hero__content {
+        padding: 1.5rem;
+    }
+
+    .feature {
+        padding: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero__content {
+        width: 95%;
+    }
+
+    .hero__title .title-line {
+        font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .hero__subtitle {
+        font-size: 1rem;
+        margin: 1rem auto 2rem;
+    }
+
+    .hero__cta {
+        padding: 1rem 2rem;
+    }
+
+    .feature {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+    }
+
+    .feature__icon {
+        margin: 0 0 1rem 0;
+    }
+
+    .feature__title {
+        font-size: 1.3rem;
+    }
+
+    .section-description {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
+
+/* Touch Device Optimizations */
+@media (hover: none) {
+    .hero__cta:hover {
+        transform: none;
+        background-color: transparent;
+        color: var(--color-gold);
+    }
+}
+/* Portfolio Section */
+.wedding-portfolio {
+    padding: var(--spacing-xl) 0;
+    background-color: var(--color-black);
+}
+
+.portfolio__header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.portfolio__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.portfolio-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 2/3;
+}
+
+.portfolio-item.wide {
+    grid-column: span 2;
+    aspect-ratio: 16/9;
+}
+
+.portfolio__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.portfolio__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: flex-end;
+    padding: 2rem;
+}
+
+.portfolio-item:hover .portfolio__image {
+    transform: scale(1.05);
+}
+
+.portfolio-item:hover .portfolio__overlay {
+    opacity: 1;
+}
+
+.portfolio__content {
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.portfolio-item:hover .portfolio__content {
+    transform: translateY(0);
+}
+
+.portfolio__title {
+    color: var(--color-gold);
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+
+.portfolio__text {
+    color: var(--color-white);
+    font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+    .portfolio__grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .portfolio-item.wide {
+        grid-column: span 1;
+        aspect-ratio: 3/4;
+    }
+
+    .portfolio__title {
+        font-size: 1.5rem;
+    }
+}

@@ -1541,6 +1541,7 @@ body::-webkit-scrollbar-thumb {
     }
 }
 /* Custom Cursor */
+/* Custom Cursor */
 .cursor {
     width: 20px;
     height: 20px;
@@ -1549,8 +1550,7 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
     pointer-events: none;
     z-index: 9999;
-    transition: all 0.1s ease;
-    transition-property: width, height, border;
+    transform: translate(-50%, -50%); /* Center the cursor */
 }
 
 .cursor-dot {
@@ -1561,6 +1561,7 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
     pointer-events: none;
     z-index: 9999;
+    transform: translate(-50%, -50%); /* Center the cursor */
 }
 
 .cursor.hover {
@@ -1568,7 +1569,6 @@ body::-webkit-scrollbar-thumb {
     height: 40px;
     border-width: 1px;
 }
-
 
 
 /* Back to Top Button */
