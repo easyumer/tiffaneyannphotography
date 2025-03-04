@@ -390,3 +390,15 @@ progressSteps.forEach(step => {
     step.addEventListener('click', stopSlideshow);
 });
 });
+
+// Social items animation
+document.addEventListener('DOMContentLoaded', function() {
+    const socialItems = document.querySelectorAll('.social-item');
+    
+    // Apply animations immediately without ScrollTrigger
+    setTimeout(() => {
+        socialItems.forEach(item => {
+            item.classList.add('animate');
+        });
+    }, 500);
+});
