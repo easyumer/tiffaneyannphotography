@@ -1,931 +1,268 @@
-// Enhanced Meet Tiffaney Section animations
-function initMeetTiffaneyAnimations() {
-    // Split text for animation
-    const titleElement = document.querySelector('.meet-tiffaney__title');
-    const subtitleElement = document.querySelector('.meet-tiffaney__subtitle');
-    
-    if (titleElement) {
-        // Create animated title reveal
-        const titleSplitText = new SplitText(titleElement, {type: "words,chars"});
-        const titleChars = titleSplitText.chars;
+// About Page JavaScript with Elastic Scroll for Parallax Section
+document.addEventListener('DOMContentLoaded', function() {
+  // Video handling
+  const heroVideo = document.querySelector('.hero-video');
+  
+  if (heroVideo) {
+    // Try to play the video
+    heroVideo.play().catch(function(error) {
+      console.log('Auto-play prevented:', error);
+      
+      // Create play button as fallback
+      if (!document.querySelector('.video-play-button')) {
+        const playButton = document.createElement('button');
+        playButton.className = 'video-play-button';
+        playButton.innerHTML = '<i class="fas fa-play"></i>';
+        playButton.setAttribute('aria-label', 'Play video');
         
-        gsap.from(titleChars, {
-            opacity: 0,
-            y: 20,
-            duration: 1,
-            stagger: 0.02,
-            ease: "power3.out",
-            delay: 0.3
+        document.querySelector('.video-container').appendChild(playButton);
+        
+        playButton.addEventListener('click', function() {
+          heroVideo.play();
+          playButton.style.display = 'none';
         });
-    }
-    
-    if (subtitleElement) {
-        gsap.from(subtitleElement, {
-            opacity: 0,
-            y: 20,
-            duration: 0.8,
-            ease: "power3.out",
-            delay: 0.8
-        });
-    }
-    
-    // Animate bio paragraphs
-    gsap.from('.meet-tiffaney__bio p', {
-        opacity: 0,
-        y: 20,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: "power3.out",
-        delay: 1
+      }
     });
     
-    // Badges animation
-    gsap.from('.badge', {
-        opacity: 0,
-        x: -20,
-        duration: 0.6,
-        stagger: 0.2,
-        ease: "power3.out",
-        delay: 1.5
+    // Simple mobile check and handling
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      heroVideo.setAttribute('playsinline', '');
+      heroVideo.muted = true;
+      
+      // Some mobile browsers need user interaction
+      document.addEventListener('touchstart', function() {
+        heroVideo.play().catch(function(e) {
+          console.log('Mobile play attempt failed:', e);
+        });
+      }, {once: true});
+    }
+  }
+  
+  // Simple animation with basic JS for better compatibility
+  function fadeIn(element, delay) {
+    setTimeout(function() {
+      element.style.opacity = 1;
+      element.style.transform = 'translateY(0)';
+    }, delay);
+  }
+  
+  // Apply simple animations to hero elements
+  const heroElements = document.querySelectorAll('.intro-text, .subtitle-text, .statement-text, .and-statement, .description');
+  
+  heroElements.forEach(function(element, index) {
+    element.style.opacity = 0;
+    element.style.transform = 'translateY(20px)';
+    element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+    
+    fadeIn(element, 200 * index);
+  });
+  
+  // Simple way to handle gallery animations on scroll
+  function isElementInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+      rect.top <= (window.innerHeight || document.documentElement.clientHeight) &&
+      rect.bottom >= 0
+    );
+  }
+  
+  function handleScrollAnimations() {
+    const galleryElements = document.querySelectorAll('.left-image, .center-text, .right-image');
+    
+    galleryElements.forEach(function(element) {
+      if (isElementInViewport(element) && !element.classList.contains('animated')) {
+        element.classList.add('animated');
+        element.style.opacity = 1;
+        element.style.transform = 'translateY(0)';
+      }
+    });
+  }
+  
+  // Set initial styles for gallery elements
+  const galleryElements = document.querySelectorAll('.left-image, .center-text, .right-image');
+  galleryElements.forEach(function(element) {
+    element.style.opacity = 0;
+    element.style.transform = 'translateY(30px)';
+    element.style.transition = 'opacity 1s ease, transform 1s ease';
+  });
+  
+  // Back to top button functionality
+  const backToTopButton = document.querySelector('.back-to-top');
+  
+  if (backToTopButton) {
+    // Show/hide button based on scroll position
+    window.addEventListener('scroll', function() {
+      if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+      } else {
+        backToTopButton.classList.remove('visible');
+      }
     });
     
-    // Signature animation
-   // Signature animation
-gsap.from('.signature', {
-    opacity: 0,
-    y: 30,
-    rotateZ: '-10deg',
-    duration: 0.8,
-    ease: "elastic.out(1, 0.5)",
-    delay: 1.8
+    // Scroll to top when clicked
+    backToTopButton.addEventListener('click', function() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  }
+  
+  // Handle navigation menu toggle
+  const navToggle = document.querySelector('.nav__toggle');
+  const navMenu = document.querySelector('.nav__menu');
+  
+  if (navToggle && navMenu) {
+    navToggle.addEventListener('click', function() {
+      navToggle.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+  }
+  
+  // Adventure section animations
+  function animateAdventureElements() {
+    const elements = document.querySelectorAll('.adventure-header, .adventure-card, .adventure-text, .adventure-footer');
+    
+    elements.forEach(function(element) {
+      // Add initial styles for animation
+      if (!element.classList.contains('animated') && !element.classList.contains('animate-setup')) {
+        element.style.opacity = '0';
+        element.style.transform = element.classList.contains('adventure-card') 
+          ? 'translateY(40px)' 
+          : 'translateY(30px)';
+        element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        element.classList.add('animate-setup');
+      }
+      
+      // Check if element is in viewport
+      if (isElementInViewport(element) && !element.classList.contains('animated')) {
+        // Delay based on position in DOM for staggered effect
+        const index = Array.from(elements).indexOf(element);
+        const delay = 100 * index;
+        
+        setTimeout(function() {
+          element.style.opacity = '1';
+          element.style.transform = 'translateY(0)';
+          element.classList.add('animated');
+        }, delay);
+      }
+    });
+  }
+  
+  // Parallax section with elastic scroll
+  const parallaxSection = document.getElementById('parallax-section');
+  const parallaxBackground = document.querySelector('.parallax-background');
+  const parallaxContent = document.querySelector('.parallax-content');
+  
+  // Variables for elastic scroll
+  let currentScroll = 0;
+  let targetScroll = 0;
+  let ease = 0.075; // Lower value = smoother/slower transition
+  
+  function initParallax() {
+    if (!parallaxSection || !parallaxBackground || !parallaxContent) return;
+    
+    // Set initial position
+    updateParallaxScroll();
+    
+    // Animate scroll with elastic effect
+    function animateParallaxScroll() {
+      // Calculate difference between current and target scroll
+      const diff = targetScroll - currentScroll;
+      
+      // Apply easing to create elastic effect
+      currentScroll += diff * ease;
+      
+      // Apply transformations for parallax effect
+      parallaxBackground.style.transform = `translateY(-${currentScroll * 0.5}px)`;
+      parallaxContent.style.transform = `translateY(${currentScroll * 0.1}px)`;
+      
+      // Continue animation loop
+      requestAnimationFrame(animateParallaxScroll);
+    }
+    
+    // Start animation loop
+    requestAnimationFrame(animateParallaxScroll);
+    
+    // Handle parallax scroll events
+    function handleParallaxScroll() {
+      const scrollTop = window.pageYOffset;
+      const sectionTop = parallaxSection.offsetTop;
+      const sectionHeight = parallaxSection.offsetHeight;
+      
+      // Check if section is in view
+      if (scrollTop >= sectionTop - window.innerHeight && 
+          scrollTop <= sectionTop + sectionHeight) {
+        
+        // Calculate relative position within section (0 to 1)
+        const relativePos = (scrollTop - (sectionTop - window.innerHeight)) / 
+                           (sectionHeight + window.innerHeight);
+        
+        // Update target scroll based on position
+        targetScroll = relativePos * 100;
+      }
+    }
+    
+    // Update parallax scroll position
+    function updateParallaxScroll() {
+      const scrollTop = window.pageYOffset;
+      const sectionTop = parallaxSection.offsetTop;
+      const sectionHeight = parallaxSection.offsetHeight;
+      
+      if (scrollTop >= sectionTop - window.innerHeight && 
+          scrollTop <= sectionTop + sectionHeight) {
+        
+        const relativePos = (scrollTop - (sectionTop - window.innerHeight)) / 
+                           (sectionHeight + window.innerHeight);
+        
+        targetScroll = relativePos * 100;
+        currentScroll = targetScroll;
+      }
+    }
+    
+    // Add event listener for scroll
+    window.addEventListener('scroll', handleParallaxScroll);
+    
+    // Handle resize events
+    window.addEventListener('resize', updateParallaxScroll);
+  }
+  
+  // Initialize parallax effect
+  initParallax();
+  
+  // Animate philosophy items when they enter viewport
+  function animatePhilosophyItems() {
+    const items = document.querySelectorAll('.philosophy-item, .parallax-title, .parallax-quote');
+    
+    items.forEach(function(item, index) {
+      if (!item.classList.contains('animated') && !item.classList.contains('animate-setup')) {
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(30px)';
+        item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        item.classList.add('animate-setup');
+      }
+      
+      if (isElementInViewport(item) && !item.classList.contains('animated')) {
+        setTimeout(function() {
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+          item.classList.add('animated');
+        }, 150 * index);
+      }
+    });
+  }
+  
+  // Add scroll event listener for all animations
+  window.addEventListener('scroll', function() {
+    handleScrollAnimations();
+    animateAdventureElements();
+    animatePhilosophyItems();
+  });
+  
+  // Initial check in case elements are already in viewport
+  handleScrollAnimations();
+  animateAdventureElements();
+  animatePhilosophyItems();
 });
-
-// Add a subtle animation for the signature
-gsap.to('.signature', {
-    backgroundPosition: '200px 0',
-    duration: 3,
-    repeat: -1,
-    ease: "sine.inOut"
-});
-    
-    // Image frame animation
-    gsap.from('.image-frame', {
-        opacity: 0,
-        rotate: -8,
-        duration: 1.2,
-        ease: "power3.out",
-        delay: 0.5
-    });
-    
-    // Corner elements subtle light effect
-    const corners = document.querySelectorAll('.image-frame__corner');
-    corners.forEach(corner => {
-        gsap.to(corner, {
-            borderColor: 'rgba(255,255,255,0.5)',
-            duration: Math.random() * 2 + 2,
-            repeat: -1,
-            yoyo: true,
-            ease: "sine.inOut"
-        });
-    });
-    
-    // Subtle rainbow spectrum animation
-    gsap.to('.subtle-spectrum', {
-        opacity: 0.2,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: "sine.inOut"
-    });
-}
-// Enhanced My Story Timeline animations
-function initMyStoryAnimations() {
-    // Parallax effect for timeline items
-    gsap.utils.toArray('.timeline-item').forEach((item, i) => {
-        gsap.from(item, {
-            scrollTrigger: {
-                trigger: item,
-                start: 'top 80%',
-                end: 'bottom 20%',
-                scrub: true
-            },
-            y: i % 2 === 0 ? 50 : -50,
-            opacity: 0.8,
-            duration: 1
-        });
-    });
-    
-    // Timeline line drawing animation
-    gsap.from('.timeline::before', {
-        scrollTrigger: {
-            trigger: '.timeline',
-            start: 'top 80%',
-            end: 'bottom 20%',
-            scrub: true
-        },
-        height: 0,
-        duration: 1
-    });
-    
-    // Markers pop animation
-    gsap.from('.timeline-marker', {
-        scrollTrigger: {
-            trigger: '.timeline',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-        },
-        scale: 0,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.3,
-        ease: 'back.out(1.7)'
-    });
-    
-    // Content animation
-    gsap.utils.toArray('.timeline-content').forEach((content, i) => {
-        const direction = i % 2 === 0 ? -30 : 30;
-        
-        gsap.from(content, {
-            scrollTrigger: {
-                trigger: content,
-                start: 'top 80%',
-                toggleActions: 'play none none none'
-            },
-            x: direction,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out'
-        });
-    });
-    
-    // Pull quote highlight
-    gsap.from('.pull-quote', {
-        scrollTrigger: {
-            trigger: '.pull-quote',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-        },
-        opacity: 0,
-        scale: 0.9,
-        duration: 0.8,
-        ease: 'power3.out'
-    });
-    
-    // Add grayscale to color hover effect handlers
-    const imageContainers = document.querySelectorAll('.timeline-image-container');
-    imageContainers.forEach(container => {
-        container.addEventListener('mouseenter', () => {
-            gsap.to(container, {
-                filter: 'grayscale(0)',
-                duration: 0.5
-            });
-            
-            gsap.to(container.querySelector('.timeline-image'), {
-                scale: 1.05,
-                duration: 0.5
-            });
-        });
-        
-        container.addEventListener('mouseleave', () => {
-            gsap.to(container, {
-                filter: 'grayscale(1)',
-                duration: 0.5
-            });
-            
-            gsap.to(container.querySelector('.timeline-image'), {
-                scale: 1,
-                duration: 0.5
-            });
-        });
-    });
-}
-// Enhanced Philosophy Section animations
-function initPhilosophyAnimations() {
-    // Parallax effect for the main image
-    gsap.to('.philosophy__image', {
-        scrollTrigger: {
-            trigger: '.philosophy__image-container',
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true
-        },
-        y: -50,
-        ease: 'none'
-    });
-    
-    // Subtle border animation
-    gsap.to('.philosophy__image-container::before', {
-        opacity: 0.7,
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-    });
-    
-    // Value cards 3D tilt effect
-    const cells = document.querySelectorAll('.honeycomb-cell');
-    
-    cells.forEach(cell => {
-        cell.addEventListener('mousemove', e => {
-            const rect = cell.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const angleY = (x - centerX) / 20;
-            const angleX = (centerY - y) / 20;
-            
-            gsap.to(cell.querySelector('.honeycomb-content'), {
-                rotateX: angleX + 'deg',
-                rotateY: angleY + 'deg',
-                duration: 0.5,
-                ease: 'power2.out'
-            });
-        });
-        
-        cell.addEventListener('mouseleave', () => {
-            gsap.to(cell.querySelector('.honeycomb-content'), {
-                rotateX: '0deg',
-                rotateY: '0deg',
-                duration: 0.5,
-                ease: 'power2.out'
-            });
-        });
-        
-        // Expand card on click
-        const expandBtn = cell.querySelector('.value-card__expand');
-        if (expandBtn) {
-            expandBtn.addEventListener('click', e => {
-                e.stopPropagation();
-                const details = cell.querySelector('.value-card__details');
-                const isVisible = details.style.opacity === '1';
-                
-                gsap.to(details, {
-                    opacity: isVisible ? 0 : 1,
-                    duration: 0.3
-                });
-                
-                gsap.to(expandBtn.querySelector('.expand-icon'), {
-                    rotation: isVisible ? 0 : 45,
-                    duration: 0.3
-                });
-            });
-        }
-    });
-    
-    // Staggered animation for honeycomb cells
-    gsap.from('.honeycomb-cell', {
-        scrollTrigger: {
-            trigger: '.honeycomb-grid',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-        },
-        opacity: 0,
-        y: 50,
-        stagger: 0.2,
-        duration: 0.8,
-        ease: 'power3.out'
-    });
-    
-    // Manifesto animation
-    gsap.from('.philosophy__manifesto', {
-        scrollTrigger: {
-            trigger: '.philosophy__manifesto',
-            start: 'top 85%',
-            toggleActions: 'play none none none'
-        },
-        y: 30,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out'
-    });
-    
-    // Subtle border glow animation for the manifesto
-    gsap.to('.philosophy__manifesto::before', {
-        opacity: 0.8,
-        duration: 3,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-    });
-    
-    // Special effect for the "inclusive representation" card
-    const inclusiveCard = document.querySelector('.honeycomb-cell:nth-child(4)');
-    if (inclusiveCard) {
-        gsap.to(inclusiveCard.querySelector('.value-card__icon::after'), {
-            opacity: 0.4,
-            duration: 2,
-            repeat: -1,
-            yoyo: true,
-            ease: 'sine.inOut'
-        });
-    }
-}
-// Artistic Approach Section Animations
-function initArtisticApproachAnimations() {
-    // Parallax effect for the background panels
-    gsap.to('.parallax-panel--back', {
-        scrollTrigger: {
-            trigger: '.artistic-approach',
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true
-        },
-        y: -80,
-        ease: 'none'
-    });
-    
-    gsap.to('.parallax-panel--middle', {
-        scrollTrigger: {
-            trigger: '.artistic-approach',
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true
-        },
-        y: -40,
-        ease: 'none'
-    });
-    
-    gsap.to('.parallax-panel--front', {
-        scrollTrigger: {
-            trigger: '.artistic-approach',
-            start: 'top bottom',
-            end: 'bottom top',
-            scrub: true
-        },
-        y: -20,
-        ease: 'none'
-    });
-    
-    // Create a timeline for the content animation
-    const approachTl = gsap.timeline({
-        scrollTrigger: {
-            trigger: '.artistic-approach',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-        }
-    });
-    
-    approachTl
-        .from('.approach__title-wrapper', {
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out'
-        })
-        .from('.approach__statement', {
-            y: 30,
-            opacity: 0,
-            duration: 1,
-            ease: 'power3.out'
-        }, '-=0.4')
-        .from('.highlight::after', {
-            width: 0,
-            duration: 0.8,
-            stagger: 0.2,
-            ease: 'power3.out'
-        }, '-=0.6')
-        .from('.approach__thumbnails', {
-            y: 20,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out'
-        }, '-=0.4');
-    
-    // Subtle animation for the statement's decorative elements
-    gsap.to('.approach__statement::before', {
-        width: '80px',
-        opacity: 0.7,
-        duration: 1.5,
-        delay: 0.5,
-        ease: 'power2.out'
-    });
-    
-    gsap.to('.approach__statement::after', {
-        width: '80px',
-        opacity: 0.5,
-        duration: 1.5,
-        delay: 0.8,
-        ease: 'power2.out'
-    });
-    
-    // Thumbnails interactive functionality
-    const thumbnails = document.querySelectorAll('.thumbnail');
-    thumbnails.forEach(thumb => {
-        thumb.addEventListener('click', () => {
-            const imageUrl = thumb.getAttribute('data-image');
-            
-            // Update front panel image with crossfade
-            const frontPanel = document.querySelector('.parallax-panel--front');
-            const oldImage = frontPanel.querySelector('.parallax-image');
-            
-            const newImage = document.createElement('img');
-            newImage.src = imageUrl;
-            newImage.className = 'parallax-image new-image';
-            newImage.style.opacity = 0;
-            
-            frontPanel.insertBefore(newImage, oldImage.nextSibling);
-            
-            gsap.to(oldImage, {
-                opacity: 0,
-                duration: 0.8,
-                ease: 'power2.out'
-            });
-            
-            gsap.to(newImage, {
-                opacity: 1,
-                duration: 0.8,
-                ease: 'power2.out',
-                onComplete: () => {
-                    oldImage.src = imageUrl;
-                    oldImage.style.opacity = 1;
-                    frontPanel.removeChild(newImage);
-                }
-            });
-            
-            // Animate the selected thumbnail
-            gsap.to(thumbnails, {
-                opacity: 0.7,
-                scale: 1,
-                border: '2px solid var(--color-gold)',
-                duration: 0.3
-            });
-            
-            gsap.to(thumb, {
-                opacity: 1,
-                scale: 1.1,
-                border: '2px solid var(--color-white)',
-                duration: 0.3
-            });
-        });
-    });
-}
-// Safe Space Commitment Section animations
-function initSafeSpaceAnimations() {
-    // Center circle animation
-    gsap.from('.center-circle', {
-        scrollTrigger: {
-            trigger: '.commitment-wheel',
-            start: 'top 60%',
-            toggleActions: 'play none none none'
-        },
-        scale: 0.5,
-        opacity: 0,
-        duration: 1,
-        ease: 'elastic.out(1, 0.5)'
-    });
-    
-    // Subtle pulse for center circle
-    gsap.to('.center-circle', {
-        boxShadow: '0 0 40px rgba(198, 169, 108, 0.2)',
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-    });
-    
-    // Staggered reveal of commitment items
-    const commitmentItems = document.querySelectorAll('.commitment-item');
-    
-    // Different animation based on position
-    commitmentItems.forEach(item => {
-        const position = item.getAttribute('data-position');
-        let x = 0;
-        let y = 0;
-        
-        switch(position) {
-            case 'top':
-                y = -50;
-                break;
-            case 'right':
-                x = 50;
-                break;
-            case 'bottom':
-                y = 50;
-                break;
-            case 'left':
-                x = -50;
-                break;
-        }
-        
-        gsap.from(item, {
-            scrollTrigger: {
-                trigger: '.commitment-wheel',
-                start: 'top 60%',
-                toggleActions: 'play none none none'
-            },
-            x: x,
-            y: y,
-            opacity: 0,
-            duration: 0.8,
-            delay: 0.4,
-            ease: 'power3.out'
-        });
-    });
-    
-    // Animated numbers
-    gsap.from('.commitment-item__number', {
-        scrollTrigger: {
-            trigger: '.commitment-wheel',
-            start: 'top 60%',
-            toggleActions: 'play none none none'
-        },
-        textShadow: '0px 0px 10px rgba(198, 169, 108, 0.8)',
-        opacity: 0.3,
-        duration: 1.5,
-        stagger: 0.1,
-        ease: 'power3.out'
-    });
-    
-    // Interactive elements for commitment items
-    commitmentItems.forEach(item => {
-        const number = item.querySelector('.commitment-item__number');
-        
-        item.addEventListener('mouseenter', () => {
-            gsap.to(number, {
-                scale: 1.1,
-                opacity: 1,
-                duration: 0.3
-            });
-        });
-        
-        item.addEventListener('mouseleave', () => {
-            gsap.to(number, {
-                scale: 1,
-                opacity: 0.7,
-                duration: 0.3
-            });
-        });
-    });
-    
-    // Testimonial section animation
-    const testimonialTl = gsap.timeline({
-        scrollTrigger: {
-            trigger: '.safe-space__testimonial',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-        }
-    });
-    
-    testimonialTl
-        .from('.safe-space__testimonial', {
-            y: 30,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out'
-        })
-        .from('.testimonial-icon', {
-            y: 20,
-            opacity: 0,
-            duration: 0.6,
-            ease: 'power3.out'
-        }, '-=0.4')
-        .from('.testimonial-quote', {
-            y: 20,
-            opacity: 0,
-            duration: 0.6,
-            ease: 'power3.out'
-        }, '-=0.4')
-        .from('.testimonial-author', {
-            y: 20,
-            opacity: 0,
-            duration: 0.6,
-            ease: 'power3.out'
-        }, '-=0.4')
-        .from('.testimonial-image-container', {
-            scale: 0.9,
-            opacity: 0,
-            duration: 0.8,
-            ease: 'power3.out'
-        }, '-=0.6');
-    
-    // Subtle animation for the rainbow border on the testimonial
-    gsap.to('.safe-space__testimonial::before', {
-        opacity: 0.4,
-        duration: 2,
-        repeat: -1,
-        yoyo: true,
-        ease: 'sine.inOut'
-    });
-}
-// Testimonials Section Animations
-function initTestimonialsAnimations() {
-    // Staggered animation for testimonial cards
-    gsap.from('.testimonial-card', {
-        scrollTrigger: {
-            trigger: '.testimonials-masonry',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-        },
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        stagger: 0.2,
-        ease: 'power3.out'
-    });
-    
-    // Interactive slider functionality
-    const sliderTrack = document.querySelector('.slider-track');
-    const sliderItems = document.querySelectorAll('.slider-item');
-    const sliderDots = document.querySelectorAll('.slider-dot');
-    const prevButton = document.querySelector('.slider-arrow--prev');
-    const nextButton = document.querySelector('.slider-arrow--next');
-    
-    let currentIndex = 0;
-    const itemCount = sliderItems.length;
-    
-    function updateSlider() {
-        // Update slider position
-        const translateValue = -currentIndex * 100 + '%';
-        sliderTrack.style.transform = `translateX(${translateValue})`;
-        
-        // Update dots
-        sliderDots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === currentIndex);
-        });
-    }
-    
-    // Initialize slider controls
-    if (prevButton && nextButton) {
-        prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + itemCount) % itemCount;
-            updateSlider();
-        });
-        
-        nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % itemCount;
-            updateSlider();
-        });
-    }
-    
-    // Dot navigation
-    if (sliderDots) {
-        sliderDots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                currentIndex = index;
-                updateSlider();
-            });
-        });
-    }
-    
-    // Auto advance
-    const autoAdvance = setInterval(() => {
-        if (sliderItems.length > 0) {
-            currentIndex = (currentIndex + 1) % itemCount;
-            updateSlider();
-        }
-    }, 5000);
-    
-    // Clean up interval when leaving page
-    const testimonialsSection = document.querySelector('.testimonials-section');
-    if (testimonialsSection) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting && autoAdvance) {
-                    clearInterval(autoAdvance);
-                }
-            });
-        }, { threshold: 0 });
-        
-        observer.observe(testimonialsSection);
-    }
-    
-    // Add hover animations for testimonial cards
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
-    testimonialCards.forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            gsap.to(card.querySelector('.testimonial-card__bubble'), {
-                y: -5,
-                boxShadow: '0 15px 30px rgba(0, 0, 0, 0.2)',
-                borderColor: 'rgba(198, 169, 108, 0.3)',
-                duration: 0.3
-            });
-            
-            const quoteIcon = card.querySelector('.testimonial-card__quote p::before');
-            if (quoteIcon) {
-                gsap.to(quoteIcon, {
-                    opacity: 0.6,
-                    duration: 0.3
-                });
-            }
-            
-            const image = card.querySelector('.testimonial-card__image');
-            if (image) {
-                gsap.to(image, {
-                    scale: 1.05,
-                    duration: 0.5
-                });
-            }
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            gsap.to(card.querySelector('.testimonial-card__bubble'), {
-                y: 0,
-                boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
-                borderColor: 'rgba(198, 169, 108, 0.1)',
-                duration: 0.3
-            });
-            
-            const quoteIcon = card.querySelector('.testimonial-card__quote p::before');
-            if (quoteIcon) {
-                gsap.to(quoteIcon, {
-                    opacity: 0.3,
-                    duration: 0.3
-                });
-            }
-            
-            const image = card.querySelector('.testimonial-card__image');
-            if (image) {
-                gsap.to(image, {
-                    scale: 1,
-                    duration: 0.5
-                });
-            }
-        });
-    });
-}
-// Contact CTA Section Animations
-function initContactCTAAnimations() {
-    // Background map reveal
-    gsap.from('.contact-cta__background', {
-        scrollTrigger: {
-            trigger: '.contact-cta',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-        },
-        opacity: 0,
-        duration: 1.5,
-        ease: 'power3.out'
-    });
-    
-    // Content fade in
-    gsap.from('.contact-cta__content', {
-        scrollTrigger: {
-            trigger: '.contact-cta',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-        },
-        x: -50,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out'
-    });
-    
-    // Form fade in
-    gsap.from('.contact-cta__form-container', {
-        scrollTrigger: {
-            trigger: '.contact-cta',
-            start: 'top 80%',
-            toggleActions: 'play none none none'
-        },
-        x: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: 'power3.out'
-    });
-    
-    // Initialize floating labels
-    const formInputs = document.querySelectorAll('.form-input, .form-textarea');
-    formInputs.forEach(input => {
-        // Make sure there's no text in the placeholder
-        input.placeholder = '';
-        
-        // Check initial state
-        if (input.value) {
-            const label = input.nextElementSibling;
-            if (label && label.classList.contains('floating-label')) {
-                label.classList.add('active');
-            }
-        }
-    });
-    
-    // Form validation and progress tracking
-    const contactForm = document.querySelector('.contact-form');
-    const progressBar = document.querySelector('.progress-bar');
-    
-    if (contactForm) {
-        // Track form completion progress
-        function updateProgress() {
-            const inputs = contactForm.querySelectorAll('input, textarea, select');
-            let filledCount = 0;
-            
-            inputs.forEach(input => {
-                if (input.value.trim() !== '') {
-                    filledCount++;
-                }
-            });
-            
-            const progress = (filledCount / inputs.length) * 100;
-            if (progressBar) {
-                gsap.to(progressBar, {
-                    width: `${progress}%`,
-                    duration: 0.5,
-                    ease: 'power2.out'
-                });
-            }
-        }
-        
-        // Add input event listeners for all form elements
-        const formElements = contactForm.querySelectorAll('input, textarea, select');
-        formElements.forEach(element => {
-            element.addEventListener('input', updateProgress);
-            element.addEventListener('change', updateProgress);
-        });
-        
-        // Form submission
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            
-            // Add form submission logic here
-            // For now, just simulate success with animation
-            
-            // Create success message
-            const formGroups = document.querySelectorAll('.form-group');
-            const submitButton = document.querySelector('.form-submit');
-            
-            gsap.to(formGroups, {
-                opacity: 0,
-                y: -20,
-                duration: 0.5,
-                stagger: 0.1,
-                ease: 'power3.out'
-            });
-            
-            gsap.to(submitButton, {
-                opacity: 0,
-                y: -20,
-                duration: 0.5,
-                delay: 0.3,
-                ease: 'power3.out',
-                onComplete: () => {
-                    // Replace form with success message
-                    const formContainer = document.querySelector('.contact-cta__form-container');
-                    const successMessage = document.createElement('div');
-                    successMessage.className = 'success-message';
-                    successMessage.innerHTML = `
-                        <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-                        <h3 class="success-title">Message Sent!</h3>
-                        <p class="success-text">Thank you for reaching out. I'll get back to you within 24 hours.</p>
-                    `;
-                    
-                    // Clear form and append success
-                    contactForm.innerHTML = '';
-                    formContainer.appendChild(successMessage);
-                    
-                    // Animate success message
-                    gsap.from('.success-message', {
-                        opacity: 0,
-                        y: 30,
-                        duration: 0.8,
-                        ease: 'power3.out'
-                    });
-                    
-                    // Update progress bar to 100%
-                    gsap.to(progressBar, {
-                        width: '100%',
-                        duration: 0.5,
-                        ease: 'power2.out'
-                    });
-                }
-            });
-        });
-    }
-    
-    // Animate social links
-    gsap.from('.social-link', {
-        scrollTrigger: {
-            trigger: '.social-links',
-            start: 'top 90%',
-            toggleActions: 'play none none none'
-        },
-        y: 20,
-        opacity: 0,
-        duration: 0.5,
-        stagger: 0.1,
-        ease: 'power3.out'
-    });
-    
-    // Add hover effects for social links
-    const socialLinks = document.querySelectorAll('.social-link');
-    socialLinks.forEach(link => {
-        link.addEventListener('mouseenter', () => {
-            gsap.to(link, {
-                y: -3,
-                backgroundColor: 'var(--color-gold)',
-                color: 'var(--color-black)',
-                duration: 0.3
-            });
-        });
-        
-        link.addEventListener('mouseleave', () => {
-            gsap.to(link, {
-                y: 0,
-                backgroundColor: 'transparent',
-                color: 'var(--color-gold)',
-                duration: 0.3
-            });
-        });
-    });
-}
